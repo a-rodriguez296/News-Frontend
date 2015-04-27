@@ -10,7 +10,7 @@
 #import <Parse/Parse.h>
 
 
-@interface ARFNew : PFObject
+@interface ARFNewsEntity : PFObject
 
 +(id) createNewWithTitle:(NSString *) title
                     text:(NSString *) text

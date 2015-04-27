@@ -18,7 +18,7 @@
 		9CEB2D561AEE934B00F74364 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9CEB2D551AEE934B00F74364 /* CoreData.framework */; };
 		9CEB2D581AEE935900F74364 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9CEB2D571AEE935900F74364 /* SystemConfiguration.framework */; };
 		9CEB2D5A1AEE936700F74364 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 9CEB2D591AEE936700F74364 /* libz.dylib */; };
-		9CEB2D651AEEA09600F74364 /* ARFNew.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CEB2D641AEEA09600F74364 /* ARFNew.m */; };
+		9CEB2D651AEEA09600F74364 /* ARFNewsEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CEB2D641AEEA09600F74364 /* ARFNewsEntity.m */; };
 		9CEB2D691AEEA53400F74364 /* imgPrueba.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 9CEB2D681AEEA53400F74364 /* imgPrueba.jpg */; };
 		9CEB2D6C1AEEBFEE00F74364 /* ARFScore.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CEB2D6B1AEEBFEE00F74364 /* ARFScore.m */; };
 /* End PBXBuildFile section */
@@ -55,11 +55,12 @@
 		9CEB2D5E1AEE939500F74364 /* GAILogger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GAILogger.h; sourceTree = "<group>"; };
 		9CEB2D5F1AEE939500F74364 /* GAITrackedViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GAITrackedViewController.h; sourceTree = "<group>"; };
 		9CEB2D601AEE939500F74364 /* GAITracker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GAITracker.h; sourceTree = "<group>"; };
-		9CEB2D631AEEA09600F74364 /* ARFNew.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ARFNew.h; sourceTree = "<group>"; };
-		9CEB2D641AEEA09600F74364 /* ARFNew.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ARFNew.m; sourceTree = "<group>"; };
+		9CEB2D631AEEA09600F74364 /* ARFNewsEntity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ARFNewsEntity.h; sourceTree = "<group>"; };
+		9CEB2D641AEEA09600F74364 /* ARFNewsEntity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ARFNewsEntity.m; sourceTree = "<group>"; };
 		9CEB2D681AEEA53400F74364 /* imgPrueba.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = imgPrueba.jpg; sourceTree = "<group>"; };
 		9CEB2D6A1AEEBFEE00F74364 /* ARFScore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ARFScore.h; sourceTree = "<group>"; };
 		9CEB2D6B1AEEBFEE00F74364 /* ARFScore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ARFScore.m; sourceTree = "<group>"; };
+		9CEB2D6D1AEEDC0000F74364 /* ARFConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ARFConstants.h; sourceTree = "<group>"; };
 		D20C4A43DC4A0FA9ADDA1E63 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		E1C39687DEE44A0EE20C09AB /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		E1EAA628F6387F3967BE7C5E /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
@@ -129,6 +130,7 @@
 				9CEB2D381AEE928600F74364 /* Images.xcassets */,
 				9CEB2D3A1AEE928600F74364 /* LaunchScreen.xib */,
 				9CEB2D311AEE928600F74364 /* Supporting Files */,
+				9CEB2D6D1AEEDC0000F74364 /* ARFConstants.h */,
 			);
 			path = News;
 			sourceTree = "<group>";
@@ -196,8 +198,8 @@
 		9CEB2D671AEEA0A600F74364 /* New */ = {
 			isa = PBXGroup;
 			children = (
-				9CEB2D631AEEA09600F74364 /* ARFNew.h */,
-				9CEB2D641AEEA09600F74364 /* ARFNew.m */,
+				9CEB2D631AEEA09600F74364 /* ARFNewsEntity.h */,
+				9CEB2D641AEEA09600F74364 /* ARFNewsEntity.m */,
 				9CEB2D6A1AEEBFEE00F74364 /* ARFScore.h */,
 				9CEB2D6B1AEEBFEE00F74364 /* ARFScore.m */,
 			);
@@ -350,7 +352,7 @@
 				9CEB2D371AEE928600F74364 /* AppDelegate.m in Sources */,
 				9CEB2D341AEE928600F74364 /* main.m in Sources */,
 				9CEB2D6C1AEEBFEE00F74364 /* ARFScore.m in Sources */,
-				9CEB2D651AEEA09600F74364 /* ARFNew.m in Sources */,
+				9CEB2D651AEEA09600F74364 /* ARFNewsEntity.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

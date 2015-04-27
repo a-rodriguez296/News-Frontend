@@ -7,16 +7,17 @@
 //
 
 #import "ARFScore.h"
-#import "ARFNew.h"
+#import "ARFNewsEntity.h"
+#import "ARFConstants.h"
 
 @implementation ARFScore
 
 +(id) createScoreWithScore:(double) score
-                   withNew:(ARFNew *) newsEntity{
+                   withNew:(ARFNewsEntity *) newsEntity{
     
-    PFObject *scoreEntity = [PFObject objectWithClassName:@"Score"];
-    [scoreEntity setObject:[NSNumber numberWithDouble:score] forKey:@"score"];
-    [scoreEntity setObject:newsEntity forKey:@"new"];
+    PFObject *scoreEntity = [PFObject objectWithClassName:kScoreEntityName];
+    [scoreEntity setObject:[NSNumber numberWithDouble:score] forKey:kScoreEntityScore];
+    [scoreEntity setObject:newsEntity forKey:kScoreEntityNew];
     
     return scoreEntity;
 }

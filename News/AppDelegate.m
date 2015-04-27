@@ -10,7 +10,7 @@
 #import <Parse/Parse.h>
 
 //Borrar
-#import "ARFNew.h"
+#import "ARFNewsEntity.h"
 #import "ARFScore.h"
 
 @interface AppDelegate ()
@@ -27,16 +27,16 @@
     //Configuración Parse
     [Parse setApplicationId:@"LkcDLQrgBOx3WrlsQdF7CbWoRxRheZNFhYEUDNbt" clientKey:@"vb1cj7WchFanF4RJnyjab78TbEFrkJoH8Cj3CxVT"];
     
-//    ARFNew *new = [ARFNew createNewWithTitle:@"Noticia" text:@"noticia Prueba" photo:[UIImage imageNamed:@"imgPrueba.jpg"] author:@"Alejandro"];
+//    ARFNewsEntity *new = [ARFNewsEntity createNewWithTitle:@"Noticia" text:@"noticia Prueba" photo:[UIImage imageNamed:@"imgPrueba.jpg"] author:@"Alejandro"];
 //    [new saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error){
 //        
 //    }];
     
-    PFQuery *query = [PFQuery queryWithClassName:@"New"];
-    [query whereKey:@"objectId" equalTo:@"J2MccbWFhb"];
+    PFQuery *query = [PFQuery queryWithClassName:@"NewsEntity"];
+    [query whereKey:@"objectId" equalTo:@"WLrQWa6dix"];
     [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error){
         
-        ARFNew *newsEntity = [objects firstObject];
+        ARFNewsEntity *newsEntity = [objects firstObject];
         for (int i = 0; i<99; i++) {
             
             ARFScore *score = [ARFScore createScoreWithScore:2.5 withNew:newsEntity];
