@@ -8,19 +8,33 @@
 
 /* Begin PBXBuildFile section */
 		7E7DDD031C2DB5E5BAE1F06B /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D20C4A43DC4A0FA9ADDA1E63 /* libPods.a */; };
+		9C59B0B21AF878FE0075C5A8 /* ARFNewsHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9C59B0B11AF878FE0075C5A8 /* ARFNewsHeader.xib */; };
+		9C59B0B51AF87B580075C5A8 /* ARFNewsHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C59B0B41AF87B580075C5A8 /* ARFNewsHeader.m */; };
+		9CA63C051AF1A3770010D86D /* ARFDisplayNewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CA63C041AF1A3770010D86D /* ARFDisplayNewViewController.m */; };
+		9CBED1BC1AF7E4EA003A018C /* ARFNewsTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CBED1BA1AF7E4EA003A018C /* ARFNewsTableViewCell.m */; };
+		9CBED1BD1AF7E4EA003A018C /* ARFNewsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9CBED1BB1AF7E4EA003A018C /* ARFNewsTableViewCell.xib */; };
+		9CBED1C51AF81120003A018C /* ARFUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CBED1C41AF81120003A018C /* ARFUser.m */; };
+		9CBED1C91AF82538003A018C /* CLLocationManager+Manager.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CBED1C81AF82538003A018C /* CLLocationManager+Manager.m */; };
+		9CBED1CE1AF82B9A003A018C /* PFObject+Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CBED1CD1AF82B9A003A018C /* PFObject+Utils.m */; };
+		9CBED1D31AF86220003A018C /* ARFContainerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CBED1D11AF86220003A018C /* ARFContainerViewController.m */; };
+		9CBED1D41AF86220003A018C /* ARFContainerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9CBED1D21AF86220003A018C /* ARFContainerViewController.xib */; };
 		9CEB2D341AEE928600F74364 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CEB2D331AEE928600F74364 /* main.m */; };
 		9CEB2D371AEE928600F74364 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CEB2D361AEE928600F74364 /* AppDelegate.m */; };
 		9CEB2D391AEE928600F74364 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9CEB2D381AEE928600F74364 /* Images.xcassets */; };
 		9CEB2D3C1AEE928600F74364 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9CEB2D3A1AEE928600F74364 /* LaunchScreen.xib */; };
 		9CEB2D481AEE928600F74364 /* NewsTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CEB2D471AEE928600F74364 /* NewsTests.m */; };
-		9CEB2D521AEE932000F74364 /* libGoogleAnalyticsServices.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9CEB2D511AEE932000F74364 /* libGoogleAnalyticsServices.a */; };
-		9CEB2D541AEE934200F74364 /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9CEB2D531AEE934200F74364 /* AdSupport.framework */; };
-		9CEB2D561AEE934B00F74364 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9CEB2D551AEE934B00F74364 /* CoreData.framework */; };
-		9CEB2D581AEE935900F74364 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9CEB2D571AEE935900F74364 /* SystemConfiguration.framework */; };
-		9CEB2D5A1AEE936700F74364 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 9CEB2D591AEE936700F74364 /* libz.dylib */; };
-		9CEB2D651AEEA09600F74364 /* ARFNew.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CEB2D641AEEA09600F74364 /* ARFNew.m */; };
+		9CEB2D651AEEA09600F74364 /* ARFNewsEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CEB2D641AEEA09600F74364 /* ARFNewsEntity.m */; };
 		9CEB2D691AEEA53400F74364 /* imgPrueba.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 9CEB2D681AEEA53400F74364 /* imgPrueba.jpg */; };
 		9CEB2D6C1AEEBFEE00F74364 /* ARFScore.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CEB2D6B1AEEBFEE00F74364 /* ARFScore.m */; };
+		9CEB2D711AEEE88500F74364 /* ARFNewsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CEB2D6F1AEEE88500F74364 /* ARFNewsViewController.m */; };
+		9CF7B01A1AF180AA001D5021 /* ARFBaseNewsEntityViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CF7B0181AF180AA001D5021 /* ARFBaseNewsEntityViewController.m */; };
+		9CF7B01B1AF180AA001D5021 /* ARFBaseNewsEntityViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9CF7B0191AF180AA001D5021 /* ARFBaseNewsEntityViewController.xib */; };
+		9CF7B01E1AF1839A001D5021 /* ARFBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CF7B01D1AF1839A001D5021 /* ARFBaseViewController.m */; };
+		9CF7B0261AF18A79001D5021 /* UIImage+Alpha.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CF7B0211AF18A79001D5021 /* UIImage+Alpha.m */; };
+		9CF7B0271AF18A79001D5021 /* UIImage+Resize.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CF7B0231AF18A79001D5021 /* UIImage+Resize.m */; };
+		9CF7B0281AF18A79001D5021 /* UIImage+RoundedCorner.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CF7B0251AF18A79001D5021 /* UIImage+RoundedCorner.m */; };
+		9CF7B02D1AF1973C001D5021 /* ARFViewNewsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CF7B02C1AF1973C001D5021 /* ARFViewNewsViewController.m */; };
+		9CF7B0311AF19D21001D5021 /* ARFCreateNewsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CF7B0301AF19D21001D5021 /* ARFCreateNewsViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -34,6 +48,23 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		9C59B0B11AF878FE0075C5A8 /* ARFNewsHeader.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ARFNewsHeader.xib; sourceTree = "<group>"; };
+		9C59B0B31AF87B580075C5A8 /* ARFNewsHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ARFNewsHeader.h; sourceTree = "<group>"; };
+		9C59B0B41AF87B580075C5A8 /* ARFNewsHeader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ARFNewsHeader.m; sourceTree = "<group>"; };
+		9CA63C031AF1A3770010D86D /* ARFDisplayNewViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ARFDisplayNewViewController.h; sourceTree = "<group>"; };
+		9CA63C041AF1A3770010D86D /* ARFDisplayNewViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ARFDisplayNewViewController.m; sourceTree = "<group>"; };
+		9CBED1B91AF7E4EA003A018C /* ARFNewsTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ARFNewsTableViewCell.h; sourceTree = "<group>"; };
+		9CBED1BA1AF7E4EA003A018C /* ARFNewsTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ARFNewsTableViewCell.m; sourceTree = "<group>"; };
+		9CBED1BB1AF7E4EA003A018C /* ARFNewsTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ARFNewsTableViewCell.xib; sourceTree = "<group>"; };
+		9CBED1C31AF81120003A018C /* ARFUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ARFUser.h; sourceTree = "<group>"; };
+		9CBED1C41AF81120003A018C /* ARFUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ARFUser.m; sourceTree = "<group>"; };
+		9CBED1C71AF82538003A018C /* CLLocationManager+Manager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CLLocationManager+Manager.h"; sourceTree = "<group>"; };
+		9CBED1C81AF82538003A018C /* CLLocationManager+Manager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "CLLocationManager+Manager.m"; sourceTree = "<group>"; };
+		9CBED1CC1AF82B9A003A018C /* PFObject+Utils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "PFObject+Utils.h"; sourceTree = "<group>"; };
+		9CBED1CD1AF82B9A003A018C /* PFObject+Utils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "PFObject+Utils.m"; sourceTree = "<group>"; };
+		9CBED1D01AF86220003A018C /* ARFContainerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ARFContainerViewController.h; sourceTree = "<group>"; };
+		9CBED1D11AF86220003A018C /* ARFContainerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ARFContainerViewController.m; sourceTree = "<group>"; };
+		9CBED1D21AF86220003A018C /* ARFContainerViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ARFContainerViewController.xib; sourceTree = "<group>"; };
 		9CEB2D2E1AEE928600F74364 /* News.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = News.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9CEB2D321AEE928600F74364 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9CEB2D331AEE928600F74364 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -44,22 +75,29 @@
 		9CEB2D411AEE928600F74364 /* NewsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NewsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		9CEB2D461AEE928600F74364 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9CEB2D471AEE928600F74364 /* NewsTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NewsTests.m; sourceTree = "<group>"; };
-		9CEB2D511AEE932000F74364 /* libGoogleAnalyticsServices.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libGoogleAnalyticsServices.a; sourceTree = "<group>"; };
-		9CEB2D531AEE934200F74364 /* AdSupport.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AdSupport.framework; path = System/Library/Frameworks/AdSupport.framework; sourceTree = SDKROOT; };
-		9CEB2D551AEE934B00F74364 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
-		9CEB2D571AEE935900F74364 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
-		9CEB2D591AEE936700F74364 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
-		9CEB2D5B1AEE939500F74364 /* GAI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GAI.h; sourceTree = "<group>"; };
-		9CEB2D5C1AEE939500F74364 /* GAIDictionaryBuilder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GAIDictionaryBuilder.h; sourceTree = "<group>"; };
-		9CEB2D5D1AEE939500F74364 /* GAIFields.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GAIFields.h; sourceTree = "<group>"; };
-		9CEB2D5E1AEE939500F74364 /* GAILogger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GAILogger.h; sourceTree = "<group>"; };
-		9CEB2D5F1AEE939500F74364 /* GAITrackedViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GAITrackedViewController.h; sourceTree = "<group>"; };
-		9CEB2D601AEE939500F74364 /* GAITracker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GAITracker.h; sourceTree = "<group>"; };
-		9CEB2D631AEEA09600F74364 /* ARFNew.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ARFNew.h; sourceTree = "<group>"; };
-		9CEB2D641AEEA09600F74364 /* ARFNew.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ARFNew.m; sourceTree = "<group>"; };
+		9CEB2D631AEEA09600F74364 /* ARFNewsEntity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ARFNewsEntity.h; sourceTree = "<group>"; };
+		9CEB2D641AEEA09600F74364 /* ARFNewsEntity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ARFNewsEntity.m; sourceTree = "<group>"; };
 		9CEB2D681AEEA53400F74364 /* imgPrueba.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = imgPrueba.jpg; sourceTree = "<group>"; };
 		9CEB2D6A1AEEBFEE00F74364 /* ARFScore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ARFScore.h; sourceTree = "<group>"; };
 		9CEB2D6B1AEEBFEE00F74364 /* ARFScore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ARFScore.m; sourceTree = "<group>"; };
+		9CEB2D6D1AEEDC0000F74364 /* ARFConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ARFConstants.h; sourceTree = "<group>"; };
+		9CEB2D6E1AEEE88500F74364 /* ARFNewsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ARFNewsViewController.h; sourceTree = "<group>"; };
+		9CEB2D6F1AEEE88500F74364 /* ARFNewsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ARFNewsViewController.m; sourceTree = "<group>"; };
+		9CF7B0171AF180AA001D5021 /* ARFBaseNewsEntityViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ARFBaseNewsEntityViewController.h; sourceTree = "<group>"; };
+		9CF7B0181AF180AA001D5021 /* ARFBaseNewsEntityViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ARFBaseNewsEntityViewController.m; sourceTree = "<group>"; };
+		9CF7B0191AF180AA001D5021 /* ARFBaseNewsEntityViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ARFBaseNewsEntityViewController.xib; sourceTree = "<group>"; };
+		9CF7B01C1AF1839A001D5021 /* ARFBaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ARFBaseViewController.h; sourceTree = "<group>"; };
+		9CF7B01D1AF1839A001D5021 /* ARFBaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ARFBaseViewController.m; sourceTree = "<group>"; };
+		9CF7B0201AF18A79001D5021 /* UIImage+Alpha.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Alpha.h"; sourceTree = "<group>"; };
+		9CF7B0211AF18A79001D5021 /* UIImage+Alpha.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Alpha.m"; sourceTree = "<group>"; };
+		9CF7B0221AF18A79001D5021 /* UIImage+Resize.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Resize.h"; sourceTree = "<group>"; };
+		9CF7B0231AF18A79001D5021 /* UIImage+Resize.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Resize.m"; sourceTree = "<group>"; };
+		9CF7B0241AF18A79001D5021 /* UIImage+RoundedCorner.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+RoundedCorner.h"; sourceTree = "<group>"; };
+		9CF7B0251AF18A79001D5021 /* UIImage+RoundedCorner.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+RoundedCorner.m"; sourceTree = "<group>"; };
+		9CF7B02B1AF1973C001D5021 /* ARFViewNewsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ARFViewNewsViewController.h; sourceTree = "<group>"; };
+		9CF7B02C1AF1973C001D5021 /* ARFViewNewsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ARFViewNewsViewController.m; sourceTree = "<group>"; };
+		9CF7B02F1AF19D21001D5021 /* ARFCreateNewsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ARFCreateNewsViewController.h; sourceTree = "<group>"; };
+		9CF7B0301AF19D21001D5021 /* ARFCreateNewsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ARFCreateNewsViewController.m; sourceTree = "<group>"; };
 		D20C4A43DC4A0FA9ADDA1E63 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		E1C39687DEE44A0EE20C09AB /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		E1EAA628F6387F3967BE7C5E /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
@@ -70,11 +108,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9CEB2D5A1AEE936700F74364 /* libz.dylib in Frameworks */,
-				9CEB2D581AEE935900F74364 /* SystemConfiguration.framework in Frameworks */,
-				9CEB2D561AEE934B00F74364 /* CoreData.framework in Frameworks */,
-				9CEB2D541AEE934200F74364 /* AdSupport.framework in Frameworks */,
-				9CEB2D521AEE932000F74364 /* libGoogleAnalyticsServices.a in Frameworks */,
 				7E7DDD031C2DB5E5BAE1F06B /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -96,6 +129,90 @@
 				E1EAA628F6387F3967BE7C5E /* Pods.release.xcconfig */,
 			);
 			name = Pods;
+			sourceTree = "<group>";
+		};
+		9C59B0B61AF87CCB0075C5A8 /* Header */ = {
+			isa = PBXGroup;
+			children = (
+				9C59B0B11AF878FE0075C5A8 /* ARFNewsHeader.xib */,
+				9C59B0B31AF87B580075C5A8 /* ARFNewsHeader.h */,
+				9C59B0B41AF87B580075C5A8 /* ARFNewsHeader.m */,
+			);
+			name = Header;
+			sourceTree = "<group>";
+		};
+		9CA63C021AF1A32A0010D86D /* Create New VC */ = {
+			isa = PBXGroup;
+			children = (
+				9CF7B02F1AF19D21001D5021 /* ARFCreateNewsViewController.h */,
+				9CF7B0301AF19D21001D5021 /* ARFCreateNewsViewController.m */,
+			);
+			name = "Create New VC";
+			sourceTree = "<group>";
+		};
+		9CA63C061AF1A4D40010D86D /* Display new VC */ = {
+			isa = PBXGroup;
+			children = (
+				9CA63C031AF1A3770010D86D /* ARFDisplayNewViewController.h */,
+				9CA63C041AF1A3770010D86D /* ARFDisplayNewViewController.m */,
+			);
+			name = "Display new VC";
+			sourceTree = "<group>";
+		};
+		9CBED1BE1AF7F80D003A018C /* Score */ = {
+			isa = PBXGroup;
+			children = (
+				9CEB2D6A1AEEBFEE00F74364 /* ARFScore.h */,
+				9CEB2D6B1AEEBFEE00F74364 /* ARFScore.m */,
+			);
+			name = Score;
+			sourceTree = "<group>";
+		};
+		9CBED1C61AF81196003A018C /* User */ = {
+			isa = PBXGroup;
+			children = (
+				9CBED1C31AF81120003A018C /* ARFUser.h */,
+				9CBED1C41AF81120003A018C /* ARFUser.m */,
+			);
+			name = User;
+			sourceTree = "<group>";
+		};
+		9CBED1CA1AF825AF003A018C /* Location Manager */ = {
+			isa = PBXGroup;
+			children = (
+				9CBED1C71AF82538003A018C /* CLLocationManager+Manager.h */,
+				9CBED1C81AF82538003A018C /* CLLocationManager+Manager.m */,
+			);
+			name = "Location Manager";
+			sourceTree = "<group>";
+		};
+		9CBED1CB1AF829A7003A018C /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				9CBED1B91AF7E4EA003A018C /* ARFNewsTableViewCell.h */,
+				9CBED1BA1AF7E4EA003A018C /* ARFNewsTableViewCell.m */,
+				9CBED1BB1AF7E4EA003A018C /* ARFNewsTableViewCell.xib */,
+			);
+			name = Cell;
+			sourceTree = "<group>";
+		};
+		9CBED1CF1AF85BB3003A018C /* PFObject */ = {
+			isa = PBXGroup;
+			children = (
+				9CBED1CC1AF82B9A003A018C /* PFObject+Utils.h */,
+				9CBED1CD1AF82B9A003A018C /* PFObject+Utils.m */,
+			);
+			name = PFObject;
+			sourceTree = "<group>";
+		};
+		9CBED1D51AF86325003A018C /* Container */ = {
+			isa = PBXGroup;
+			children = (
+				9CBED1D01AF86220003A018C /* ARFContainerViewController.h */,
+				9CBED1D11AF86220003A018C /* ARFContainerViewController.m */,
+				9CBED1D21AF86220003A018C /* ARFContainerViewController.xib */,
+			);
+			name = Container;
 			sourceTree = "<group>";
 		};
 		9CEB2D251AEE928600F74364 = {
@@ -121,9 +238,10 @@
 		9CEB2D301AEE928600F74364 /* News */ = {
 			isa = PBXGroup;
 			children = (
+				9CF7B0141AF17884001D5021 /* Utils */,
 				9CEB2D681AEEA53400F74364 /* imgPrueba.jpg */,
-				9CEB2D611AEE93A400F74364 /* Google Analytics */,
 				9CEB2D661AEEA09F00F74364 /* Model */,
+				9CF7B0161AF18054001D5021 /* Controllers */,
 				9CEB2D351AEE928600F74364 /* AppDelegate.h */,
 				9CEB2D361AEE928600F74364 /* AppDelegate.m */,
 				9CEB2D381AEE928600F74364 /* Images.xcassets */,
@@ -159,35 +277,11 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		9CEB2D611AEE93A400F74364 /* Google Analytics */ = {
-			isa = PBXGroup;
-			children = (
-				9CEB2D621AEE93BE00F74364 /* Libraries */,
-				9CEB2D5B1AEE939500F74364 /* GAI.h */,
-				9CEB2D5C1AEE939500F74364 /* GAIDictionaryBuilder.h */,
-				9CEB2D5D1AEE939500F74364 /* GAIFields.h */,
-				9CEB2D5E1AEE939500F74364 /* GAILogger.h */,
-				9CEB2D5F1AEE939500F74364 /* GAITrackedViewController.h */,
-				9CEB2D601AEE939500F74364 /* GAITracker.h */,
-			);
-			name = "Google Analytics";
-			sourceTree = "<group>";
-		};
-		9CEB2D621AEE93BE00F74364 /* Libraries */ = {
-			isa = PBXGroup;
-			children = (
-				9CEB2D511AEE932000F74364 /* libGoogleAnalyticsServices.a */,
-				9CEB2D591AEE936700F74364 /* libz.dylib */,
-				9CEB2D571AEE935900F74364 /* SystemConfiguration.framework */,
-				9CEB2D551AEE934B00F74364 /* CoreData.framework */,
-				9CEB2D531AEE934200F74364 /* AdSupport.framework */,
-			);
-			name = Libraries;
-			sourceTree = "<group>";
-		};
 		9CEB2D661AEEA09F00F74364 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				9CBED1C61AF81196003A018C /* User */,
+				9CBED1BE1AF7F80D003A018C /* Score */,
 				9CEB2D671AEEA0A600F74364 /* New */,
 			);
 			name = Model;
@@ -196,12 +290,87 @@
 		9CEB2D671AEEA0A600F74364 /* New */ = {
 			isa = PBXGroup;
 			children = (
-				9CEB2D631AEEA09600F74364 /* ARFNew.h */,
-				9CEB2D641AEEA09600F74364 /* ARFNew.m */,
-				9CEB2D6A1AEEBFEE00F74364 /* ARFScore.h */,
-				9CEB2D6B1AEEBFEE00F74364 /* ARFScore.m */,
+				9CEB2D631AEEA09600F74364 /* ARFNewsEntity.h */,
+				9CEB2D641AEEA09600F74364 /* ARFNewsEntity.m */,
 			);
 			name = New;
+			sourceTree = "<group>";
+		};
+		9CF7B0141AF17884001D5021 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				9CEB2D6D1AEEDC0000F74364 /* ARFConstants.h */,
+				9CF7B0291AF18A81001D5021 /* UIImage */,
+				9CF7B01F1AF183E0001D5021 /* Base VC */,
+				9CBED1CA1AF825AF003A018C /* Location Manager */,
+				9CBED1CF1AF85BB3003A018C /* PFObject */,
+			);
+			name = Utils;
+			sourceTree = "<group>";
+		};
+		9CF7B0151AF18047001D5021 /* News VC */ = {
+			isa = PBXGroup;
+			children = (
+				9CEB2D6E1AEEE88500F74364 /* ARFNewsViewController.h */,
+				9CEB2D6F1AEEE88500F74364 /* ARFNewsViewController.m */,
+				9CBED1CB1AF829A7003A018C /* Cell */,
+				9C59B0B61AF87CCB0075C5A8 /* Header */,
+			);
+			name = "News VC";
+			sourceTree = "<group>";
+		};
+		9CF7B0161AF18054001D5021 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				9CBED1D51AF86325003A018C /* Container */,
+				9CF7B0151AF18047001D5021 /* News VC */,
+				9CF7B02A1AF19372001D5021 /* Base New VC */,
+				9CA63C061AF1A4D40010D86D /* Display new VC */,
+				9CA63C021AF1A32A0010D86D /* Create New VC */,
+				9CF7B02E1AF1974F001D5021 /* View Single New VC */,
+			);
+			name = Controllers;
+			sourceTree = "<group>";
+		};
+		9CF7B01F1AF183E0001D5021 /* Base VC */ = {
+			isa = PBXGroup;
+			children = (
+				9CF7B01C1AF1839A001D5021 /* ARFBaseViewController.h */,
+				9CF7B01D1AF1839A001D5021 /* ARFBaseViewController.m */,
+			);
+			name = "Base VC";
+			sourceTree = "<group>";
+		};
+		9CF7B0291AF18A81001D5021 /* UIImage */ = {
+			isa = PBXGroup;
+			children = (
+				9CF7B0201AF18A79001D5021 /* UIImage+Alpha.h */,
+				9CF7B0211AF18A79001D5021 /* UIImage+Alpha.m */,
+				9CF7B0221AF18A79001D5021 /* UIImage+Resize.h */,
+				9CF7B0231AF18A79001D5021 /* UIImage+Resize.m */,
+				9CF7B0241AF18A79001D5021 /* UIImage+RoundedCorner.h */,
+				9CF7B0251AF18A79001D5021 /* UIImage+RoundedCorner.m */,
+			);
+			name = UIImage;
+			sourceTree = "<group>";
+		};
+		9CF7B02A1AF19372001D5021 /* Base New VC */ = {
+			isa = PBXGroup;
+			children = (
+				9CF7B0171AF180AA001D5021 /* ARFBaseNewsEntityViewController.h */,
+				9CF7B0181AF180AA001D5021 /* ARFBaseNewsEntityViewController.m */,
+				9CF7B0191AF180AA001D5021 /* ARFBaseNewsEntityViewController.xib */,
+			);
+			name = "Base New VC";
+			sourceTree = "<group>";
+		};
+		9CF7B02E1AF1974F001D5021 /* View Single New VC */ = {
+			isa = PBXGroup;
+			children = (
+				9CF7B02B1AF1973C001D5021 /* ARFViewNewsViewController.h */,
+				9CF7B02C1AF1973C001D5021 /* ARFViewNewsViewController.m */,
+			);
+			name = "View Single New VC";
 			sourceTree = "<group>";
 		};
 		C37084C65952812AF421AB76 /* Frameworks */ = {
@@ -294,9 +463,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9CF7B01B1AF180AA001D5021 /* ARFBaseNewsEntityViewController.xib in Resources */,
 				9CEB2D3C1AEE928600F74364 /* LaunchScreen.xib in Resources */,
 				9CEB2D391AEE928600F74364 /* Images.xcassets in Resources */,
 				9CEB2D691AEEA53400F74364 /* imgPrueba.jpg in Resources */,
+				9CBED1D41AF86220003A018C /* ARFContainerViewController.xib in Resources */,
+				9CBED1BD1AF7E4EA003A018C /* ARFNewsTableViewCell.xib in Resources */,
+				9C59B0B21AF878FE0075C5A8 /* ARFNewsHeader.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -347,10 +520,25 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9CBED1CE1AF82B9A003A018C /* PFObject+Utils.m in Sources */,
 				9CEB2D371AEE928600F74364 /* AppDelegate.m in Sources */,
+				9CBED1D31AF86220003A018C /* ARFContainerViewController.m in Sources */,
 				9CEB2D341AEE928600F74364 /* main.m in Sources */,
+				9CF7B01E1AF1839A001D5021 /* ARFBaseViewController.m in Sources */,
 				9CEB2D6C1AEEBFEE00F74364 /* ARFScore.m in Sources */,
-				9CEB2D651AEEA09600F74364 /* ARFNew.m in Sources */,
+				9CF7B0261AF18A79001D5021 /* UIImage+Alpha.m in Sources */,
+				9CA63C051AF1A3770010D86D /* ARFDisplayNewViewController.m in Sources */,
+				9CF7B0271AF18A79001D5021 /* UIImage+Resize.m in Sources */,
+				9CF7B02D1AF1973C001D5021 /* ARFViewNewsViewController.m in Sources */,
+				9CF7B0281AF18A79001D5021 /* UIImage+RoundedCorner.m in Sources */,
+				9CEB2D711AEEE88500F74364 /* ARFNewsViewController.m in Sources */,
+				9CBED1BC1AF7E4EA003A018C /* ARFNewsTableViewCell.m in Sources */,
+				9CF7B0311AF19D21001D5021 /* ARFCreateNewsViewController.m in Sources */,
+				9CBED1C51AF81120003A018C /* ARFUser.m in Sources */,
+				9CF7B01A1AF180AA001D5021 /* ARFBaseNewsEntityViewController.m in Sources */,
+				9C59B0B51AF87B580075C5A8 /* ARFNewsHeader.m in Sources */,
+				9CEB2D651AEEA09600F74364 /* ARFNewsEntity.m in Sources */,
+				9CBED1C91AF82538003A018C /* CLLocationManager+Manager.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -8,11 +8,14 @@
 
 #import <Foundation/Foundation.h>
 #import <Parse/Parse.h>
-@class ARFNew;
 
-@interface ARFScore : PFObject
+@class ARFNewsEntity;
+
+@interface ARFScore : PFObject <PFSubclassing>
 
 +(id) createScoreWithScore:(double) score
-                   withNew:(ARFNew *) newsEntity;
+                   withNew:(ARFNewsEntity *) newsEntity;
+
++ (NSString *)parseClassName;
 
 @end

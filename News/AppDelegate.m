@@ -8,12 +8,18 @@
 
 #import "AppDelegate.h"
 #import <Parse/Parse.h>
+#import "ARFContainerViewController.h"
+#import <FBSDKCoreKit/FBSDKCoreKit.h>
+#import <ParseFacebookUtilsV4/PFFacebookUtils.h>
+#import "GAI.h"
+#import "GAITracker.h"
 
 //Borrar
-#import "ARFNew.h"
+#import "ARFNewsEntity.h"
 #import "ARFScore.h"
+#import "ARFNewsViewController.h"
 
-@interface AppDelegate ()
+@interface AppDelegate () <PFLogInViewControllerDelegate>
 
 @end
 
@@ -25,28 +31,28 @@
     // Override point for customization after application launch.
     
     //Configuración Parse
+    [ARFNewsEntity load];
+    [ARFScore load];
     [Parse setApplicationId:@"LkcDLQrgBOx3WrlsQdF7CbWoRxRheZNFhYEUDNbt" clientKey:@"vb1cj7WchFanF4RJnyjab78TbEFrkJoH8Cj3CxVT"];
+    [PFFacebookUtils initializeFacebookWithApplicationLaunchOptions:launchOptions];
+
+    //Configuración Google Analytics
+    [GAI sharedInstance].trackUncaughtExceptions = YES;
+    [GAI sharedInstance].dispatchInterval = 20;
+    [[GAI sharedInstance] trackerWithTrackingId:@"UA-62622368-1"];
     
-//    ARFNew *new = [ARFNew createNewWithTitle:@"Noticia" text:@"noticia Prueba" photo:[UIImage imageNamed:@"imgPrueba.jpg"] author:@"Alejandro"];
-//    [new saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error){
-//        
-//    }];
-    
-    PFQuery *query = [PFQuery queryWithClassName:@"New"];
-    [query whereKey:@"objectId" equalTo:@"J2MccbWFhb"];
-    [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error){
-        
-        ARFNew *newsEntity = [objects firstObject];
-        for (int i = 0; i<99; i++) {
-            
-            ARFScore *score = [ARFScore createScoreWithScore:2.5 withNew:newsEntity];
-            [score saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error){
-                
-            }];
-        }
-        
-    }];
-    
+    if (![PFUser currentUser]) {
+        PFLogInViewController *logInController = [[PFLogInViewController alloc] init];
+        logInController.delegate = self;
+        [logInController setFields:PFLogInFieldsFacebook];
+        [logInController setFacebookPermissions:@[@"public_profile",@"email",@"user_friends"]];
+        self.window.rootViewController = logInController;
+    }
+    else{
+        ARFContainerViewController *containerVC = [[ARFContainerViewController alloc] init];
+        ARFNewsViewController *newsVC =  [[ARFNewsViewController alloc] init];
+        self.window.rootViewController = [[UINavigationController alloc] initWithRootViewController:containerVC];
+    }
     
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
@@ -68,11 +74,59 @@
 }
 
 - (void)applicationDidBecomeActive:(UIApplication *)application {
-    // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
+     [FBSDKAppEvents activateApp];
 }
 
 - (void)applicationWillTerminate:(UIApplication *)application {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
 }
+
+
+- (BOOL)application:(UIApplication *)application
+            openURL:(NSURL *)url
+  sourceApplication:(NSString *)sourceApplication
+         annotation:(id)annotation {
+    return [[FBSDKApplicationDelegate sharedInstance] application:application
+                                                          openURL:url
+                                                sourceApplication:sourceApplication
+                                                       annotation:annotation];
+}
+
+-(void) createData{
+
+    
+//    ARFNewsEntity *new = [ARFNewsEntity createNewWithTitle:@"Noticia" text:@"noticia Prueba" photo:[UIImage imageNamed:@"imgPrueba.jpg"] author:@"Alejandro"];
+//    [new saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error){
+//        
+//    }];
+//    
+//    PFQuery *query = [PFQuery queryWithClassName:@"NewsEntity"];
+//    [query whereKey:@"objectId" equalTo:@"WLrQWa6dix"];
+//    [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error){
+//        
+//        ARFNewsEntity *newsEntity = [objects firstObject];
+//        for (int i = 0; i<99; i++) {
+//            
+//            ARFScore *score = [ARFScore createScoreWithScore:2.5 withNew:newsEntity];
+//            [score saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error){
+//                
+//            }];
+//        }
+//        
+//    }];
+}
+
+#pragma mark PFLogInViewControllerDelegate
+- (void)logInViewController:(PFLogInViewController *)controller
+               didLogInUser:(PFUser *)user {
+    
+    [self.window.rootViewController dismissViewControllerAnimated:YES completion:nil];
+    ARFNewsViewController *newsVC =  [[ARFNewsViewController alloc] init];
+    self.window.rootViewController = [[UINavigationController alloc] initWithRootViewController:newsVC];
+}
+
+- (void)logInViewControllerDidCancelLogIn:(PFLogInViewController *)logInController {}
+
+-(void)logInViewController:(PFLogInViewController * __nonnull)logInController didFailToLogInWithError:(nullable NSError *)error{}
 
 @end

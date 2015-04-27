@@ -7,18 +7,28 @@
 //
 
 #import "ARFScore.h"
-#import "ARFNew.h"
+#import "ARFNewsEntity.h"
+#import "ARFConstants.h"
+#import <Parse/PFObject+Subclass.h>
 
 @implementation ARFScore
 
 +(id) createScoreWithScore:(double) score
-                   withNew:(ARFNew *) newsEntity{
+                   withNew:(ARFNewsEntity *) newsEntity{
     
-    PFObject *scoreEntity = [PFObject objectWithClassName:@"Score"];
-    [scoreEntity setObject:[NSNumber numberWithDouble:score] forKey:@"score"];
-    [scoreEntity setObject:newsEntity forKey:@"new"];
-    
+    PFObject *scoreEntity = [PFObject objectWithClassName:kScoreEntityName];
+    [scoreEntity setObject:[NSNumber numberWithDouble:score] forKey:kScoreEntityScore];
+    [scoreEntity setObject:newsEntity forKey:kScoreEntityNew];
+    [scoreEntity setObject:[PFUser currentUser] forKey:kNewsEntityUser];
     return scoreEntity;
 }
 
+
++ (NSString *)parseClassName {
+    return kScoreEntityName;
+}
+
++ (void)load {
+    [self registerSubclass];
+}
 @end
