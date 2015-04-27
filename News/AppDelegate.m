@@ -7,6 +7,11 @@
 //
 
 #import "AppDelegate.h"
+#import <Parse/Parse.h>
+
+//Borrar
+#import "ARFNew.h"
+#import "ARFScore.h"
 
 @interface AppDelegate ()
 
@@ -18,6 +23,31 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     // Override point for customization after application launch.
+    
+    //Configuración Parse
+    [Parse setApplicationId:@"LkcDLQrgBOx3WrlsQdF7CbWoRxRheZNFhYEUDNbt" clientKey:@"vb1cj7WchFanF4RJnyjab78TbEFrkJoH8Cj3CxVT"];
+    
+//    ARFNew *new = [ARFNew createNewWithTitle:@"Noticia" text:@"noticia Prueba" photo:[UIImage imageNamed:@"imgPrueba.jpg"] author:@"Alejandro"];
+//    [new saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error){
+//        
+//    }];
+    
+    PFQuery *query = [PFQuery queryWithClassName:@"New"];
+    [query whereKey:@"objectId" equalTo:@"J2MccbWFhb"];
+    [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error){
+        
+        ARFNew *newsEntity = [objects firstObject];
+        for (int i = 0; i<99; i++) {
+            
+            ARFScore *score = [ARFScore createScoreWithScore:2.5 withNew:newsEntity];
+            [score saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error){
+                
+            }];
+        }
+        
+    }];
+    
+    
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
     return YES;
