@@ -21,6 +21,8 @@
 		9CEB2D651AEEA09600F74364 /* ARFNewsEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CEB2D641AEEA09600F74364 /* ARFNewsEntity.m */; };
 		9CEB2D691AEEA53400F74364 /* imgPrueba.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 9CEB2D681AEEA53400F74364 /* imgPrueba.jpg */; };
 		9CEB2D6C1AEEBFEE00F74364 /* ARFScore.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CEB2D6B1AEEBFEE00F74364 /* ARFScore.m */; };
+		9CEB2D711AEEE88500F74364 /* ARFNewsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CEB2D6F1AEEE88500F74364 /* ARFNewsViewController.m */; };
+		9CEB2D721AEEE88500F74364 /* ARFNewsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9CEB2D701AEEE88500F74364 /* ARFNewsViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -61,6 +63,9 @@
 		9CEB2D6A1AEEBFEE00F74364 /* ARFScore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ARFScore.h; sourceTree = "<group>"; };
 		9CEB2D6B1AEEBFEE00F74364 /* ARFScore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ARFScore.m; sourceTree = "<group>"; };
 		9CEB2D6D1AEEDC0000F74364 /* ARFConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ARFConstants.h; sourceTree = "<group>"; };
+		9CEB2D6E1AEEE88500F74364 /* ARFNewsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ARFNewsViewController.h; sourceTree = "<group>"; };
+		9CEB2D6F1AEEE88500F74364 /* ARFNewsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ARFNewsViewController.m; sourceTree = "<group>"; };
+		9CEB2D701AEEE88500F74364 /* ARFNewsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ARFNewsViewController.xib; sourceTree = "<group>"; };
 		D20C4A43DC4A0FA9ADDA1E63 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		E1C39687DEE44A0EE20C09AB /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		E1EAA628F6387F3967BE7C5E /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
@@ -131,6 +136,9 @@
 				9CEB2D3A1AEE928600F74364 /* LaunchScreen.xib */,
 				9CEB2D311AEE928600F74364 /* Supporting Files */,
 				9CEB2D6D1AEEDC0000F74364 /* ARFConstants.h */,
+				9CEB2D6E1AEEE88500F74364 /* ARFNewsViewController.h */,
+				9CEB2D6F1AEEE88500F74364 /* ARFNewsViewController.m */,
+				9CEB2D701AEEE88500F74364 /* ARFNewsViewController.xib */,
 			);
 			path = News;
 			sourceTree = "<group>";
@@ -299,6 +307,7 @@
 				9CEB2D3C1AEE928600F74364 /* LaunchScreen.xib in Resources */,
 				9CEB2D391AEE928600F74364 /* Images.xcassets in Resources */,
 				9CEB2D691AEEA53400F74364 /* imgPrueba.jpg in Resources */,
+				9CEB2D721AEEE88500F74364 /* ARFNewsViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -352,6 +361,7 @@
 				9CEB2D371AEE928600F74364 /* AppDelegate.m in Sources */,
 				9CEB2D341AEE928600F74364 /* main.m in Sources */,
 				9CEB2D6C1AEEBFEE00F74364 /* ARFScore.m in Sources */,
+				9CEB2D711AEEE88500F74364 /* ARFNewsViewController.m in Sources */,
 				9CEB2D651AEEA09600F74364 /* ARFNewsEntity.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

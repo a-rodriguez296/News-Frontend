@@ -8,6 +8,7 @@
 
 #import "AppDelegate.h"
 #import <Parse/Parse.h>
+#import "ARFNewsViewController.h"
 
 //Borrar
 #import "ARFNewsEntity.h"
@@ -27,26 +28,8 @@
     //Configuración Parse
     [Parse setApplicationId:@"LkcDLQrgBOx3WrlsQdF7CbWoRxRheZNFhYEUDNbt" clientKey:@"vb1cj7WchFanF4RJnyjab78TbEFrkJoH8Cj3CxVT"];
     
-//    ARFNewsEntity *new = [ARFNewsEntity createNewWithTitle:@"Noticia" text:@"noticia Prueba" photo:[UIImage imageNamed:@"imgPrueba.jpg"] author:@"Alejandro"];
-//    [new saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error){
-//        
-//    }];
-    
-    PFQuery *query = [PFQuery queryWithClassName:@"NewsEntity"];
-    [query whereKey:@"objectId" equalTo:@"WLrQWa6dix"];
-    [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error){
-        
-        ARFNewsEntity *newsEntity = [objects firstObject];
-        for (int i = 0; i<99; i++) {
-            
-            ARFScore *score = [ARFScore createScoreWithScore:2.5 withNew:newsEntity];
-            [score saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error){
-                
-            }];
-        }
-        
-    }];
-    
+    ARFNewsViewController *newsVC =  [[ARFNewsViewController alloc] init];
+    self.window.rootViewController = [[UINavigationController alloc] initWithRootViewController:newsVC];
     
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
@@ -73,6 +56,30 @@
 
 - (void)applicationWillTerminate:(UIApplication *)application {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+}
+
+-(void) createData{
+
+    
+//    ARFNewsEntity *new = [ARFNewsEntity createNewWithTitle:@"Noticia" text:@"noticia Prueba" photo:[UIImage imageNamed:@"imgPrueba.jpg"] author:@"Alejandro"];
+//    [new saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error){
+//        
+//    }];
+//    
+//    PFQuery *query = [PFQuery queryWithClassName:@"NewsEntity"];
+//    [query whereKey:@"objectId" equalTo:@"WLrQWa6dix"];
+//    [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error){
+//        
+//        ARFNewsEntity *newsEntity = [objects firstObject];
+//        for (int i = 0; i<99; i++) {
+//            
+//            ARFScore *score = [ARFScore createScoreWithScore:2.5 withNew:newsEntity];
+//            [score saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error){
+//                
+//            }];
+//        }
+//        
+//    }];
 }
 
 @end
