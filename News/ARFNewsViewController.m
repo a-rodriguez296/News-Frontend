@@ -6,8 +6,11 @@
 #import "Parse/Parse.h"
 #import <ParseUI/ParseUI.h>
 #import "ARFConstants.h"
+//Borrar
+#import <ParseFacebookUtilsV4/PFFacebookUtils.h>
+#import <FBSDKCoreKit/FBSDKCoreKit.h>
 
-@interface ARFNewsViewController : PFQueryTableViewController
+@interface ARFNewsViewController : PFQueryTableViewController <PFLogInViewControllerDelegate>
 
 @end
 
@@ -71,6 +74,36 @@
 
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
+    
+    PFUser *user = [PFUser currentUser];
+    if (![PFUser currentUser]) {
+        PFLogInViewController *logInController = [[PFLogInViewController alloc] init];
+        logInController.delegate = self;
+        [logInController setFields:PFLogInFieldsFacebook];
+        [logInController setFacebookPermissions:@[@"public_profile",@"email",@"user_friends"]];
+        [self presentViewController:logInController animated:YES completion:nil];
+    }
+    
+
+//    [PFFacebookUtils logInInBackgroundWithReadPermissions:@[@"public_profile",@"email",@"user_friends"] block:^(PFUser *user, NSError *error) {
+//        if (!user) {
+//            NSLog(@"Uh oh. The user cancelled the Facebook login.");
+//        } else if (user.isNew) {
+//            NSLog(@"User signed up and logged in through Facebook!");
+//        } else {
+//            NSLog(@"User logged in through Facebook!");
+//        }
+//    }];
+}
+
+- (void)logInViewController:(PFLogInViewController *)controller
+               didLogInUser:(PFUser *)user {
+
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+- (void)logInViewControllerDidCancelLogIn:(PFLogInViewController *)logInController {
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
