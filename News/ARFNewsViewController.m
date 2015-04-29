@@ -12,6 +12,8 @@
 
 @interface ARFNewsViewController : PFQueryTableViewController <PFLogInViewControllerDelegate>
 
+@property (nonatomic, strong) PFUser *user;
+
 @end
 
 @implementation ARFNewsViewController
@@ -60,6 +62,17 @@
     
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    
+    self.user = [PFUser currentUser];
+    
+    UIBarButtonItem *rightButton = [[UIBarButtonItem alloc] initWithTitle:@"logout" style:UIBarButtonItemStylePlain target:self action:@selector(logout:)];
+    self.navigationItem.rightBarButtonItem = rightButton;
+    
+}
+
+
+-(void) logout:(id) sender{
+    [PFUser logOut];
 }
 
 - (void)viewDidUnload {
@@ -78,12 +91,12 @@
 //    PFUser *user = [PFUser currentUser];
     
     
-    [PFCloud callFunctionInBackground:@"hello" withParameters:nil block:^(id result, NSError *error){
-
-        NSDictionary * dict = result;
-        NSLog(@"%@",dict);
-        
-    }];
+//    [PFCloud callFunctionInBackground:@"hello" withParameters:nil block:^(id result, NSError *error){
+//
+//        NSDictionary * dict = result;
+//        NSLog(@"%@",dict);
+//        
+//    }];
     if (![PFUser currentUser]) {
         PFLogInViewController *logInController = [[PFLogInViewController alloc] init];
         logInController.delegate = self;
@@ -112,6 +125,10 @@
 
 - (void)logInViewControllerDidCancelLogIn:(PFLogInViewController *)logInController {
     [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+-(void)logInViewController:(PFLogInViewController * __nonnull)logInController didFailToLogInWithError:(nullable NSError *)error{
+    
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
@@ -146,6 +163,9 @@
  // Override to customize what kind of query to perform on the class. The default is to query for
  // all objects ordered by createdAt descending.
  - (PFQuery *)queryForTable {
+     
+     
+
  PFQuery *query = [PFQuery queryWithClassName:self.parseClassName];
  
  // If Pull To Refresh is enabled, query against the network by default.
