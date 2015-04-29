@@ -6,9 +6,10 @@
 #import "Parse/Parse.h"
 #import <ParseUI/ParseUI.h>
 #import "ARFConstants.h"
-//Borrar
-#import <ParseFacebookUtilsV4/PFFacebookUtils.h>
-#import <FBSDKCoreKit/FBSDKCoreKit.h>
+#import "ARFNewsEntity.h"
+#import "ARFCreateNewsViewController.h"
+#import "ARFViewNewsViewController.h"
+#import "ARFDisplayNewViewController.h"
 
 @interface ARFNewsViewController : PFQueryTableViewController <PFLogInViewControllerDelegate>
 
@@ -44,14 +45,6 @@
     return self;
 }
 
-- (void)didReceiveMemoryWarning {
-    // Releases the view if it doesn't have a superview.
-    [super didReceiveMemoryWarning];
-    
-    // Release any cached data, images, etc that aren't in use.
-}
-
-
 #pragma mark - UIViewController
 
 - (void)viewDidLoad {
@@ -65,57 +58,39 @@
     
     self.user = [PFUser currentUser];
     
-    UIBarButtonItem *rightButton = [[UIBarButtonItem alloc] initWithTitle:@"logout" style:UIBarButtonItemStylePlain target:self action:@selector(logout:)];
-    self.navigationItem.rightBarButtonItem = rightButton;
+    UIBarButtonItem *logoutButton = [[UIBarButtonItem alloc] initWithTitle:@"logout" style:UIBarButtonItemStylePlain target:self action:@selector(logout:)];
+    self.navigationItem.leftBarButtonItem = logoutButton;
+    
+    
+    UIBarButtonItem *addNewsButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(addNews:)];
+    self.navigationItem.rightBarButtonItem = addNewsButton;
     
 }
 
-
--(void) logout:(id) sender{
-    [PFUser logOut];
-}
-
-- (void)viewDidUnload {
-    [super viewDidUnload];
-    // Release any retained subviews of the main view.
-    // e.g. self.myOutlet = nil;
-}
-
-- (void)viewWillAppear:(BOOL)animated {
-    [super viewWillAppear:animated];
-}
 
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
     
-//    PFUser *user = [PFUser currentUser];
+    //    PFUser *user = [PFUser currentUser];
     
     
-//    [PFCloud callFunctionInBackground:@"hello" withParameters:nil block:^(id result, NSError *error){
-//
-//        NSDictionary * dict = result;
-//        NSLog(@"%@",dict);
-//        
-//    }];
+    //    [PFCloud callFunctionInBackground:@"hello" withParameters:nil block:^(id result, NSError *error){
+    //
+    //        NSDictionary * dict = result;
+    //        NSLog(@"%@",dict);
+    //
+    //    }];
     
-
-//    [PFFacebookUtils logInInBackgroundWithReadPermissions:@[@"public_profile",@"email",@"user_friends"] block:^(PFUser *user, NSError *error) {
-//        if (!user) {
-//            NSLog(@"Uh oh. The user cancelled the Facebook login.");
-//        } else if (user.isNew) {
-//            NSLog(@"User signed up and logged in through Facebook!");
-//        } else {
-//            NSLog(@"User logged in through Facebook!");
-//        }
-//    }];
-}
-
-- (void)viewWillDisappear:(BOOL)animated {
-    [super viewWillDisappear:animated];
-}
-
-- (void)viewDidDisappear:(BOOL)animated {
-    [super viewDidDisappear:animated];
+    
+    //    [PFFacebookUtils logInInBackgroundWithReadPermissions:@[@"public_profile",@"email",@"user_friends"] block:^(PFUser *user, NSError *error) {
+    //        if (!user) {
+    //            NSLog(@"Uh oh. The user cancelled the Facebook login.");
+    //        } else if (user.isNew) {
+    //            NSLog(@"User signed up and logged in through Facebook!");
+    //        } else {
+    //            NSLog(@"User logged in through Facebook!");
+    //        }
+    //    }];
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
@@ -139,30 +114,30 @@
 }
 
 
- // Override to customize what kind of query to perform on the class. The default is to query for
- // all objects ordered by createdAt descending.
- - (PFQuery *)queryForTable {
-     
-     
+// Override to customize what kind of query to perform on the class. The default is to query for
+// all objects ordered by createdAt descending.
+- (PFQuery *)queryForTable {
+    
+    
+    
+    PFQuery *query = [PFQuery queryWithClassName:self.parseClassName];
+    
+    // If Pull To Refresh is enabled, query against the network by default.
+    if (self.pullToRefreshEnabled) {
+        query.cachePolicy = kPFCachePolicyNetworkOnly;
+    }
+    
+    // If no objects are loaded in memory, we look to the cache first to fill the table
+    // and then subsequently do a query against the network.
+    if (self.objects.count == 0) {
+        query.cachePolicy = kPFCachePolicyCacheThenNetwork;
+    }
+    
+    [query orderByDescending:@"createdAt"];
+    
+    return query;
+}
 
- PFQuery *query = [PFQuery queryWithClassName:self.parseClassName];
- 
- // If Pull To Refresh is enabled, query against the network by default.
- if (self.pullToRefreshEnabled) {
- query.cachePolicy = kPFCachePolicyNetworkOnly;
- }
- 
- // If no objects are loaded in memory, we look to the cache first to fill the table
- // and then subsequently do a query against the network.
- if (self.objects.count == 0) {
- query.cachePolicy = kPFCachePolicyCacheThenNetwork;
- }
- 
- [query orderByDescending:@"createdAt"];
- 
- return query;
- }
- 
 
 /*
  // Override to customize the look of a cell representing an object. The default is to display
@@ -184,16 +159,9 @@
  }
  */
 
-/*
- // Override if you need to change the ordering of objects in the table.
- - (PFObject *)objectAtIndex:(NSIndexPath *)indexPath {
- return [self.objects objectAtIndex:indexPath.row];
- }
- */
 
 /*
- // Override to customize the look of the cell that allows the user to load the next page of objects.
- // The default implementation is a UITableViewCellStyleDefault cell with simple labels.
+ //////Celda Loading more cells !!!!!!!!!!!!!!!!!!!!
  - (UITableViewCell *)tableView:(UITableView *)tableView cellForNextPageAtIndexPath:(NSIndexPath *)indexPath {
  static NSString *CellIdentifier = @"NextPage";
  
@@ -210,45 +178,25 @@
  }
  */
 
-#pragma mark - UITableViewDataSource
-
-/*
- // Override to support conditional editing of the table view.
- - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
- // Return NO if you do not want the specified item to be editable.
- return YES;
- }
- */
-
-/*
- // Override to support editing the table view.
- - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
- if (editingStyle == UITableViewCellEditingStyleDelete) {
- // Delete the object from Parse and reload the table view
- } else if (editingStyle == UITableViewCellEditingStyleInsert) {
- // Create a new instance of the appropriate class, and save it to Parse
- }
- }
- */
-
-/*
- // Override to support rearranging the table view.
- - (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath {
- }
- */
-
-/*
- // Override to support conditional rearranging of the table view.
- - (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath {
- // Return NO if you do not want the item to be re-orderable.
- return YES;
- }
- */
-
 #pragma mark - UITableViewDelegate
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [super tableView:tableView didSelectRowAtIndexPath:indexPath];
+    
+    ARFNewsEntity * newEntity =(ARFNewsEntity *) [self objectAtIndexPath:indexPath];
+    ARFDisplayNewViewController *displayNewVC = [[ARFDisplayNewViewController alloc] initWithNibName:NSStringFromClass([ARFBaseNewsEntityViewController class]) bundle:nil newsEntity:newEntity];
+    [self.navigationController pushViewController:displayNewVC animated:YES];
+}
+
+#pragma mark IBActions
+-(void) addNews:(id) sender{
+    
+    ARFBaseNewsEntityViewController *createNewsVC = [[ARFCreateNewsViewController alloc] initWithNibName:NSStringFromClass([ARFBaseNewsEntityViewController class]) bundle:nil];
+    [self.navigationController pushViewController:createNewsVC animated:YES];
+}
+
+-(void) logout:(id) sender{
+    [PFUser logOut];
 }
 
 @end

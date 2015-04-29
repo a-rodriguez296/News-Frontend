@@ -10,11 +10,18 @@
 #import <Parse/Parse.h>
 
 
-@interface ARFNewsEntity : PFObject
+@interface ARFNewsEntity : PFObject <PFSubclassing>
+
+
+@property(nonatomic, strong) NSString *text;
+@property(nonatomic, strong) NSString *title;
+
+
++ (NSString *)parseClassName;
 
 +(id) createNewWithTitle:(NSString *) title
                     text:(NSString *) text
-                   photo:(UIImage *) image
-                  author:(NSString *) author;
+                   photo:(UIImage *) image;
+
 
 @end

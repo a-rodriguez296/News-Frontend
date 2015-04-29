@@ -28,6 +28,7 @@
     // Override point for customization after application launch.
     
     //Configuración Parse
+    [ARFNewsEntity load];
     [Parse setApplicationId:@"LkcDLQrgBOx3WrlsQdF7CbWoRxRheZNFhYEUDNbt" clientKey:@"vb1cj7WchFanF4RJnyjab78TbEFrkJoH8Cj3CxVT"];
     [PFFacebookUtils initializeFacebookWithApplicationLaunchOptions:launchOptions];
 

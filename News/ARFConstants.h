@@ -25,7 +25,7 @@ static const NSUInteger kAutoSave = 5;
 static NSString* const kNewsEntityName = @"NewsEntity";
 static NSString* const kNewsEntityTitle = @"title";
 static NSString* const kNewsEntityText = @"text";
-static NSString* const kNewsEntityAuthor = @"author";
+static NSString* const kNewsEntityAuthor = @"user";
 static NSString* const kNewsEntityPhoto = @"photo";
 
 //Constantes ARFScore
