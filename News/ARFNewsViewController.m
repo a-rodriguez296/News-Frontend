@@ -75,7 +75,15 @@
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
     
-    PFUser *user = [PFUser currentUser];
+//    PFUser *user = [PFUser currentUser];
+    
+    
+    [PFCloud callFunctionInBackground:@"hello" withParameters:nil block:^(id result, NSError *error){
+
+        NSDictionary * dict = result;
+        NSLog(@"%@",dict);
+        
+    }];
     if (![PFUser currentUser]) {
         PFLogInViewController *logInController = [[PFLogInViewController alloc] init];
         logInController.delegate = self;
