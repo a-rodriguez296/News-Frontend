@@ -16,7 +16,7 @@
 #import "ARFNewsEntity.h"
 #import "ARFScore.h"
 
-@interface AppDelegate ()
+@interface AppDelegate () <PFLogInViewControllerDelegate>
 
 @end
 
@@ -33,9 +33,17 @@
 
     
     
-    
-    ARFNewsViewController *newsVC =  [[ARFNewsViewController alloc] init];
-    self.window.rootViewController = [[UINavigationController alloc] initWithRootViewController:newsVC];
+    if (![PFUser currentUser]) {
+        PFLogInViewController *logInController = [[PFLogInViewController alloc] init];
+        logInController.delegate = self;
+        [logInController setFields:PFLogInFieldsFacebook];
+        [logInController setFacebookPermissions:@[@"public_profile",@"email",@"user_friends"]];
+        self.window.rootViewController = logInController;
+    }
+    else{
+        ARFNewsViewController *newsVC =  [[ARFNewsViewController alloc] init];
+        self.window.rootViewController = [[UINavigationController alloc] initWithRootViewController:newsVC];
+    }
     
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
@@ -98,5 +106,18 @@
 //        
 //    }];
 }
+
+#pragma mark PFLogInViewControllerDelegate
+- (void)logInViewController:(PFLogInViewController *)controller
+               didLogInUser:(PFUser *)user {
+    
+    [self.window.rootViewController dismissViewControllerAnimated:YES completion:nil];
+    ARFNewsViewController *newsVC =  [[ARFNewsViewController alloc] init];
+    self.window.rootViewController = [[UINavigationController alloc] initWithRootViewController:newsVC];
+}
+
+- (void)logInViewControllerDidCancelLogIn:(PFLogInViewController *)logInController {}
+
+-(void)logInViewController:(PFLogInViewController * __nonnull)logInController didFailToLogInWithError:(nullable NSError *)error{}
 
 @end

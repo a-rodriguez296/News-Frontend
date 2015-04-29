@@ -97,13 +97,6 @@
 //        NSLog(@"%@",dict);
 //        
 //    }];
-    if (![PFUser currentUser]) {
-        PFLogInViewController *logInController = [[PFLogInViewController alloc] init];
-        logInController.delegate = self;
-        [logInController setFields:PFLogInFieldsFacebook];
-        [logInController setFacebookPermissions:@[@"public_profile",@"email",@"user_friends"]];
-        [self presentViewController:logInController animated:YES completion:nil];
-    }
     
 
 //    [PFFacebookUtils logInInBackgroundWithReadPermissions:@[@"public_profile",@"email",@"user_friends"] block:^(PFUser *user, NSError *error) {
@@ -115,20 +108,6 @@
 //            NSLog(@"User logged in through Facebook!");
 //        }
 //    }];
-}
-
-- (void)logInViewController:(PFLogInViewController *)controller
-               didLogInUser:(PFUser *)user {
-
-    [self dismissViewControllerAnimated:YES completion:nil];
-}
-
-- (void)logInViewControllerDidCancelLogIn:(PFLogInViewController *)logInController {
-    [self dismissViewControllerAnimated:YES completion:nil];
-}
-
--(void)logInViewController:(PFLogInViewController * __nonnull)logInController didFailToLogInWithError:(nullable NSError *)error{
-    
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
