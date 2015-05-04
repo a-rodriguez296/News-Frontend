@@ -21,6 +21,7 @@
 @property (weak, nonatomic) IBOutlet UIToolbar *toolBar;
 @property (weak, nonatomic) IBOutlet UIButton *btnAddImage;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *btnBarAddImage;
+@property (weak, nonatomic) IBOutlet UIButton *btnPublish;
 
 
 @end

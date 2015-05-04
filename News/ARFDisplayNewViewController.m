@@ -10,6 +10,7 @@
 #import "ARFNewsEntity.h"
 #import "ARFConstants.h"
 #import "ARFScore.h"
+#import "PFObject+Utils.h"
 
 @interface ARFDisplayNewViewController ()
 
@@ -44,7 +45,7 @@
     
     UIBarButtonItem *btnAddScore = [[UIBarButtonItem alloc] initWithTitle:@"Add Score" style:UIBarButtonItemStylePlain target:self action:@selector(addScore:)];
     self.navigationItem.rightBarButtonItem = btnAddScore;
-    
+    [self.btnPublish setHidden:NO];
     
     [self syncWithModel];
 }
@@ -99,6 +100,7 @@
     [[self.newsEntity objectForKey:kNewsEntityPhoto] getDataInBackgroundWithBlock:^(NSData *data, NSError *error){
         [me.imgNews setImage:[UIImage imageWithData:data]];
     }];
+    [self.btnPublish setEnabled:[PFObject compareWithLocalUserWithUser:self.newsEntity.user]];
 }
 
 @end

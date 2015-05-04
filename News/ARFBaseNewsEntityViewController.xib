@@ -9,6 +9,7 @@
                 <outlet property="activityIndicator" destination="Qyj-3U-s2j" id="6FU-Tw-H5N"/>
                 <outlet property="btnAddImage" destination="m9k-Ot-eVE" id="1ef-ns-MUx"/>
                 <outlet property="btnBarAddImage" destination="Mjx-va-nfr" id="9BK-O7-BQZ"/>
+                <outlet property="btnPublish" destination="tEU-26-t3X" id="Tye-6U-qrx"/>
                 <outlet property="imgNews" destination="90l-U4-6Wp" id="LP5-Az-Idf"/>
                 <outlet property="toolBar" destination="G3B-oU-3S6" id="9Vp-R9-gQ3"/>
                 <outlet property="txtNewsText" destination="hHV-bl-saI" id="PhQ-G7-Dlc"/>
@@ -81,12 +82,19 @@
                                     <rect key="frame" x="150" y="274" width="37" height="37"/>
                                     <color key="color" white="0.41316550925925916" alpha="1" colorSpace="calibratedWhite"/>
                                 </activityIndicatorView>
+                                <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tEU-26-t3X">
+                                    <rect key="frame" x="135" y="455" width="51" height="30"/>
+                                    <state key="normal" title="Publish">
+                                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                    </state>
+                                </button>
                             </subviews>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <constraints>
                                 <constraint firstItem="m9k-Ot-eVE" firstAttribute="top" secondItem="90l-U4-6Wp" secondAttribute="top" id="2DK-PE-Xl4"/>
                                 <constraint firstItem="90l-U4-6Wp" firstAttribute="top" secondItem="Hkt-bb-6Nu" secondAttribute="top" constant="14" id="3hv-Kp-Qia"/>
                                 <constraint firstItem="Umt-0j-hVq" firstAttribute="top" secondItem="90l-U4-6Wp" secondAttribute="bottom" constant="21" id="8F7-dL-gYQ"/>
+                                <constraint firstItem="tEU-26-t3X" firstAttribute="top" secondItem="hHV-bl-saI" secondAttribute="bottom" constant="35" id="9kw-4a-P9o"/>
                                 <constraint firstItem="m9k-Ot-eVE" firstAttribute="width" secondItem="90l-U4-6Wp" secondAttribute="width" id="A2G-zG-EZr"/>
                                 <constraint firstItem="2hq-Zx-GY9" firstAttribute="leading" secondItem="Hkt-bb-6Nu" secondAttribute="leading" constant="8" id="DpM-uP-zeV"/>
                                 <constraint firstItem="qhS-dh-OEX" firstAttribute="top" secondItem="Umt-0j-hVq" secondAttribute="bottom" constant="8" id="GdX-m1-3Dw"/>
@@ -95,6 +103,7 @@
                                 <constraint firstItem="m9k-Ot-eVE" firstAttribute="height" secondItem="90l-U4-6Wp" secondAttribute="height" id="MkZ-Ji-xje"/>
                                 <constraint firstItem="m9k-Ot-eVE" firstAttribute="leading" secondItem="90l-U4-6Wp" secondAttribute="leading" id="Qj9-DQ-CuU"/>
                                 <constraint firstItem="Umt-0j-hVq" firstAttribute="leading" secondItem="Hkt-bb-6Nu" secondAttribute="leading" constant="8" id="S5o-f9-MIA"/>
+                                <constraint firstAttribute="centerX" secondItem="tEU-26-t3X" secondAttribute="centerX" id="WAl-0a-mZu"/>
                                 <constraint firstItem="hHV-bl-saI" firstAttribute="leading" secondItem="Hkt-bb-6Nu" secondAttribute="leading" constant="8" id="WYW-Cn-afS"/>
                                 <constraint firstItem="90l-U4-6Wp" firstAttribute="leading" secondItem="Hkt-bb-6Nu" secondAttribute="leading" constant="8" id="lc0-nx-yJ4"/>
                                 <constraint firstItem="hHV-bl-saI" firstAttribute="top" secondItem="2hq-Zx-GY9" secondAttribute="bottom" constant="8" id="lpK-Q5-Vg7"/>
@@ -129,7 +138,7 @@
                 <constraint firstAttribute="bottom" secondItem="87E-iS-Yq9" secondAttribute="bottom" id="QJO-mI-MQd"/>
                 <constraint firstItem="87E-iS-Yq9" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="hex-1c-cnh"/>
             </constraints>
-            <point key="canvasLocation" x="778" y="504"/>
+            <point key="canvasLocation" x="631" y="433"/>
         </view>
     </objects>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
