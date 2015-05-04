@@ -16,6 +16,7 @@
                 <subviews>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="SlQ-bY-joe" customClass="PFImageView">
                         <rect key="frame" x="8" y="12" width="47" height="47"/>
+                        <color key="backgroundColor" red="0.28049986380000003" green="0.55581063519999996" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="47" id="ZyY-5h-V7r"/>
                             <constraint firstAttribute="width" constant="47" id="w9N-FP-O5t"/>
