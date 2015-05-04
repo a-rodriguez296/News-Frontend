@@ -9,6 +9,7 @@
 #import "ARFScore.h"
 #import "ARFNewsEntity.h"
 #import "ARFConstants.h"
+#import <Parse/PFObject+Subclass.h>
 
 @implementation ARFScore
 
@@ -18,8 +19,16 @@
     PFObject *scoreEntity = [PFObject objectWithClassName:kScoreEntityName];
     [scoreEntity setObject:[NSNumber numberWithDouble:score] forKey:kScoreEntityScore];
     [scoreEntity setObject:newsEntity forKey:kScoreEntityNew];
-    
+    [scoreEntity setObject:[PFUser currentUser] forKey:kNewsEntityAuthor];
     return scoreEntity;
 }
 
+
++ (NSString *)parseClassName {
+    return kScoreEntityName;
+}
+
++ (void)load {
+    [self registerSubclass];
+}
 @end

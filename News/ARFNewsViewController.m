@@ -10,6 +10,9 @@
 #import "ARFCreateNewsViewController.h"
 #import "ARFViewNewsViewController.h"
 #import "ARFDisplayNewViewController.h"
+#import "ARFNewsTableViewCell.h"
+
+static NSString * const cellIdentifier = @"Cell";
 
 @interface ARFNewsViewController : PFQueryTableViewController <PFLogInViewControllerDelegate>
 
@@ -50,11 +53,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
-    
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    [self.tableView registerNib:[UINib nibWithNibName:NSStringFromClass([ARFNewsTableViewCell class]) bundle:nil] forCellReuseIdentifier:cellIdentifier];;
     
     self.user = [PFUser currentUser];
     
@@ -139,26 +138,27 @@
 }
 
 
-/*
- // Override to customize the look of a cell representing an object. The default is to display
- // a UITableViewCellStyleDefault style cell with the label being the textKey in the object,
- // and the imageView being the imageKey in the object.
- - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath object:(PFObject *)object {
- static NSString *CellIdentifier = @"Cell";
- 
- PFTableViewCell *cell = (PFTableViewCell *)[tableView dequeueReusableCellWithIdentifier:CellIdentifier];
- if (cell == nil) {
- cell = [[PFTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
- }
- 
- // Configure the cell
- cell.textLabel.text = [object objectForKey:self.textKey];
- cell.imageView.file = [object objectForKey:self.imageKey];
- 
- return cell;
- }
- */
 
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath object:(PFObject *)object {
+    
+    //Current new
+    ARFNewsEntity *newsEntity =(ARFNewsEntity *) [self objectAtIndexPath:indexPath];
+    
+    ARFNewsTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
+    [cell.lblTitle setText:[newsEntity title]];
+//    NSLog(@"%@",[newsEntity user]);
+//    [cell.lblAuthor setText:[newsEntity user]];
+    NSNumber *average =(NSNumber *) [newsEntity average];
+    [cell.lblScore setText:[average stringValue]];
+    [cell.imgNew setFile:[newsEntity photoThumbnail]];
+    
+    return cell;
+}
+
+-(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+    return 72.0;
+}
 
 /*
  //////Celda Loading more cells !!!!!!!!!!!!!!!!!!!!

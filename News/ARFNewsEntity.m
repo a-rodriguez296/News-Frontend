@@ -15,6 +15,9 @@
 
 @dynamic title;
 @dynamic text;
+@dynamic  user;
+@dynamic average;
+@dynamic photoThumbnail;
 
 
 + (NSString *)parseClassName {
@@ -40,5 +43,6 @@
     
     return newObject;
 }
+
 
 @end

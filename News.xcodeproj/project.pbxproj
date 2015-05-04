@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		7E7DDD031C2DB5E5BAE1F06B /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D20C4A43DC4A0FA9ADDA1E63 /* libPods.a */; };
 		9CA63C051AF1A3770010D86D /* ARFDisplayNewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CA63C041AF1A3770010D86D /* ARFDisplayNewViewController.m */; };
+		9CBED1BC1AF7E4EA003A018C /* ARFNewsTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CBED1BA1AF7E4EA003A018C /* ARFNewsTableViewCell.m */; };
+		9CBED1BD1AF7E4EA003A018C /* ARFNewsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9CBED1BB1AF7E4EA003A018C /* ARFNewsTableViewCell.xib */; };
 		9CEB2D341AEE928600F74364 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CEB2D331AEE928600F74364 /* main.m */; };
 		9CEB2D371AEE928600F74364 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CEB2D361AEE928600F74364 /* AppDelegate.m */; };
 		9CEB2D391AEE928600F74364 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9CEB2D381AEE928600F74364 /* Images.xcassets */; };
@@ -46,6 +48,9 @@
 /* Begin PBXFileReference section */
 		9CA63C031AF1A3770010D86D /* ARFDisplayNewViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ARFDisplayNewViewController.h; sourceTree = "<group>"; };
 		9CA63C041AF1A3770010D86D /* ARFDisplayNewViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ARFDisplayNewViewController.m; sourceTree = "<group>"; };
+		9CBED1B91AF7E4EA003A018C /* ARFNewsTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ARFNewsTableViewCell.h; sourceTree = "<group>"; };
+		9CBED1BA1AF7E4EA003A018C /* ARFNewsTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ARFNewsTableViewCell.m; sourceTree = "<group>"; };
+		9CBED1BB1AF7E4EA003A018C /* ARFNewsTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ARFNewsTableViewCell.xib; sourceTree = "<group>"; };
 		9CEB2D2E1AEE928600F74364 /* News.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = News.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9CEB2D321AEE928600F74364 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9CEB2D331AEE928600F74364 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -146,6 +151,15 @@
 			name = "Display new VC";
 			sourceTree = "<group>";
 		};
+		9CBED1BE1AF7F80D003A018C /* Score */ = {
+			isa = PBXGroup;
+			children = (
+				9CEB2D6A1AEEBFEE00F74364 /* ARFScore.h */,
+				9CEB2D6B1AEEBFEE00F74364 /* ARFScore.m */,
+			);
+			name = Score;
+			sourceTree = "<group>";
+		};
 		9CEB2D251AEE928600F74364 = {
 			isa = PBXGroup;
 			children = (
@@ -238,6 +252,7 @@
 		9CEB2D661AEEA09F00F74364 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				9CBED1BE1AF7F80D003A018C /* Score */,
 				9CEB2D671AEEA0A600F74364 /* New */,
 			);
 			name = Model;
@@ -248,8 +263,6 @@
 			children = (
 				9CEB2D631AEEA09600F74364 /* ARFNewsEntity.h */,
 				9CEB2D641AEEA09600F74364 /* ARFNewsEntity.m */,
-				9CEB2D6A1AEEBFEE00F74364 /* ARFScore.h */,
-				9CEB2D6B1AEEBFEE00F74364 /* ARFScore.m */,
 			);
 			name = New;
 			sourceTree = "<group>";
@@ -269,6 +282,9 @@
 			children = (
 				9CEB2D6E1AEEE88500F74364 /* ARFNewsViewController.h */,
 				9CEB2D6F1AEEE88500F74364 /* ARFNewsViewController.m */,
+				9CBED1B91AF7E4EA003A018C /* ARFNewsTableViewCell.h */,
+				9CBED1BA1AF7E4EA003A018C /* ARFNewsTableViewCell.m */,
+				9CBED1BB1AF7E4EA003A018C /* ARFNewsTableViewCell.xib */,
 			);
 			name = "News VC";
 			sourceTree = "<group>";
@@ -420,6 +436,7 @@
 				9CEB2D3C1AEE928600F74364 /* LaunchScreen.xib in Resources */,
 				9CEB2D391AEE928600F74364 /* Images.xcassets in Resources */,
 				9CEB2D691AEEA53400F74364 /* imgPrueba.jpg in Resources */,
+				9CBED1BD1AF7E4EA003A018C /* ARFNewsTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -480,6 +497,7 @@
 				9CF7B02D1AF1973C001D5021 /* ARFViewNewsViewController.m in Sources */,
 				9CF7B0281AF18A79001D5021 /* UIImage+RoundedCorner.m in Sources */,
 				9CEB2D711AEEE88500F74364 /* ARFNewsViewController.m in Sources */,
+				9CBED1BC1AF7E4EA003A018C /* ARFNewsTableViewCell.m in Sources */,
 				9CF7B0311AF19D21001D5021 /* ARFCreateNewsViewController.m in Sources */,
 				9CF7B01A1AF180AA001D5021 /* ARFBaseNewsEntityViewController.m in Sources */,
 				9CEB2D651AEEA09600F74364 /* ARFNewsEntity.m in Sources */,

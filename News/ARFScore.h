@@ -11,9 +11,11 @@
 
 @class ARFNewsEntity;
 
-@interface ARFScore : PFObject
+@interface ARFScore : PFObject <PFSubclassing>
 
 +(id) createScoreWithScore:(double) score
                    withNew:(ARFNewsEntity *) newsEntity;
+
++ (NSString *)parseClassName;
 
 @end

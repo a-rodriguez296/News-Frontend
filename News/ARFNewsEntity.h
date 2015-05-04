@@ -15,6 +15,9 @@
 
 @property(nonatomic, strong) NSString *text;
 @property(nonatomic, strong) NSString *title;
+@property(nonatomic, strong) NSString *user;
+@property(nonatomic, strong) NSString *average;
+@property(nonatomic, strong) PFFile * photoThumbnail;
 
 
 + (NSString *)parseClassName;

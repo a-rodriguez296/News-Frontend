@@ -29,6 +29,7 @@
     
     //Configuración Parse
     [ARFNewsEntity load];
+    [ARFScore load];
     [Parse setApplicationId:@"LkcDLQrgBOx3WrlsQdF7CbWoRxRheZNFhYEUDNbt" clientKey:@"vb1cj7WchFanF4RJnyjab78TbEFrkJoH8Cj3CxVT"];
     [PFFacebookUtils initializeFacebookWithApplicationLaunchOptions:launchOptions];
 
