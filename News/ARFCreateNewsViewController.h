@@ -7,7 +7,8 @@
 //
 
 #import "ARFBaseNewsEntityViewController.h"
+@import CoreLocation;
 
-@interface ARFCreateNewsViewController : ARFBaseNewsEntityViewController <UINavigationControllerDelegate,UIImagePickerControllerDelegate>
+@interface ARFCreateNewsViewController : ARFBaseNewsEntityViewController <UINavigationControllerDelegate,UIImagePickerControllerDelegate,CLLocationManagerDelegate>
 
 @end

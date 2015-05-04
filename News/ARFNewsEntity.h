@@ -24,7 +24,8 @@
 
 +(id) createNewWithTitle:(NSString *) title
                     text:(NSString *) text
-                   photo:(UIImage *) image;
+                   photo:(UIImage *) image
+                location:(CLLocation *) location;
 
 
 @end

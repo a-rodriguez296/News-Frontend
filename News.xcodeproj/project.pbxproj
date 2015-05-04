@@ -12,6 +12,7 @@
 		9CBED1BC1AF7E4EA003A018C /* ARFNewsTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CBED1BA1AF7E4EA003A018C /* ARFNewsTableViewCell.m */; };
 		9CBED1BD1AF7E4EA003A018C /* ARFNewsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9CBED1BB1AF7E4EA003A018C /* ARFNewsTableViewCell.xib */; };
 		9CBED1C51AF81120003A018C /* ARFUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CBED1C41AF81120003A018C /* ARFUser.m */; };
+		9CBED1C91AF82538003A018C /* CLLocationManager+Manager.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CBED1C81AF82538003A018C /* CLLocationManager+Manager.m */; };
 		9CEB2D341AEE928600F74364 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CEB2D331AEE928600F74364 /* main.m */; };
 		9CEB2D371AEE928600F74364 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CEB2D361AEE928600F74364 /* AppDelegate.m */; };
 		9CEB2D391AEE928600F74364 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9CEB2D381AEE928600F74364 /* Images.xcassets */; };
@@ -54,6 +55,8 @@
 		9CBED1BB1AF7E4EA003A018C /* ARFNewsTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ARFNewsTableViewCell.xib; sourceTree = "<group>"; };
 		9CBED1C31AF81120003A018C /* ARFUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ARFUser.h; sourceTree = "<group>"; };
 		9CBED1C41AF81120003A018C /* ARFUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ARFUser.m; sourceTree = "<group>"; };
+		9CBED1C71AF82538003A018C /* CLLocationManager+Manager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CLLocationManager+Manager.h"; sourceTree = "<group>"; };
+		9CBED1C81AF82538003A018C /* CLLocationManager+Manager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "CLLocationManager+Manager.m"; sourceTree = "<group>"; };
 		9CEB2D2E1AEE928600F74364 /* News.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = News.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9CEB2D321AEE928600F74364 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9CEB2D331AEE928600F74364 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -172,6 +175,15 @@
 			name = User;
 			sourceTree = "<group>";
 		};
+		9CBED1CA1AF825AF003A018C /* Location Manager */ = {
+			isa = PBXGroup;
+			children = (
+				9CBED1C71AF82538003A018C /* CLLocationManager+Manager.h */,
+				9CBED1C81AF82538003A018C /* CLLocationManager+Manager.m */,
+			);
+			name = "Location Manager";
+			sourceTree = "<group>";
+		};
 		9CEB2D251AEE928600F74364 = {
 			isa = PBXGroup;
 			children = (
@@ -286,6 +298,7 @@
 				9CEB2D6D1AEEDC0000F74364 /* ARFConstants.h */,
 				9CF7B0291AF18A81001D5021 /* UIImage */,
 				9CF7B01F1AF183E0001D5021 /* Base VC */,
+				9CBED1CA1AF825AF003A018C /* Location Manager */,
 			);
 			name = Utils;
 			sourceTree = "<group>";
@@ -515,6 +528,7 @@
 				9CBED1C51AF81120003A018C /* ARFUser.m in Sources */,
 				9CF7B01A1AF180AA001D5021 /* ARFBaseNewsEntityViewController.m in Sources */,
 				9CEB2D651AEEA09600F74364 /* ARFNewsEntity.m in Sources */,
+				9CBED1C91AF82538003A018C /* CLLocationManager+Manager.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

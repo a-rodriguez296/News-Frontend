@@ -27,6 +27,7 @@ static NSString* const kNewsEntityTitle = @"title";
 static NSString* const kNewsEntityText = @"text";
 static NSString* const kNewsEntityAuthor = @"user";
 static NSString* const kNewsEntityPhoto = @"photo";
+static NSString * const kNewsEntityGeopoint = @"geopoint";
 
 //Constantes ARFScore
 static NSString* const kScoreEntityName = @"Score";

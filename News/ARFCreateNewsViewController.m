@@ -10,8 +10,11 @@
 #import "ARFConstants.h"
 #import "UIImage+Resize.h"
 #import "ARFNewsEntity.h"
+#import "CLLocationManager+Manager.h"
 
 @interface ARFCreateNewsViewController ()
+
+@property(nonatomic, strong) CLLocation *location;
 
 @end
 
@@ -22,6 +25,12 @@
     
     [self setTitle:@"Create a New"];
     [self setScreenName:@"Create a new screen"];
+    
+    [[CLLocationManager sharedLocationManager] startUpdatingLocationWithDelegate:self];
+}
+
+-(void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
     
     self.btnAddNews = [[UIBarButtonItem alloc] initWithTitle:@"Add New" style:UIBarButtonItemStylePlain target:self action:@selector(addNewsObject:)];
     [self.btnAddNews setEnabled:NO];
@@ -53,7 +62,7 @@
 
 -(void) addNewsObject:(id) sender{
     
-    ARFNewsEntity *newsEntity = [ARFNewsEntity createNewWithTitle:self.txtTitle.text text:self.txtNewsText.text photo:self.imgNews.image];
+    ARFNewsEntity *newsEntity = [ARFNewsEntity createNewWithTitle:self.txtTitle.text text:self.txtNewsText.text photo:self.imgNews.image location:self.location];
     _ME_WEAK
     [self startLoadingAnimationWithFlag:YES];
     [self.view setUserInteractionEnabled:NO];
@@ -92,7 +101,11 @@
     });
     [self dismissViewControllerAnimated:YES completion:nil];
 }
-
+#pragma mark CLLocationManagerDelegate
+-(void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray *)locations{
+    [manager stopUpdating];
+    [self setLocation:[locations lastObject]];
+}
 
 #pragma mark Utils
 -(void) checkAddNewButton{

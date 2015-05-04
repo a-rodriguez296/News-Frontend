@@ -9,6 +9,7 @@
 #import "ARFNewsEntity.h"
 #import "ARFConstants.h"
 #import <Parse/PFObject+Subclass.h>
+@import CoreLocation;
 
 @implementation ARFNewsEntity
 
@@ -30,8 +31,11 @@
 
 +(id) createNewWithTitle:(NSString *) title
                     text:(NSString *) text
-                   photo:(UIImage *) image{
+                   photo:(UIImage *) image
+                location:(CLLocation *) location{
     PFObject * newObject = [PFObject objectWithClassName:kNewsEntityName];
+    
+    //Atributos básicos
     [newObject setObject:title forKey:kNewsEntityTitle];
     [newObject setObject:text forKey:kNewsEntityText];
     
@@ -39,7 +43,11 @@
     PFFile *imgFile = [PFFile fileWithData:UIImageJPEGRepresentation(image, 1.0)];
     [newObject setObject:imgFile forKey:kNewsEntityPhoto];
     
+    //Autor
     [newObject setObject:[PFUser currentUser] forKey:kNewsEntityAuthor];
+    
+    PFGeoPoint * geoPoint = [PFGeoPoint geoPointWithLocation:location];
+    [newObject setObject:geoPoint forKey:kNewsEntityGeopoint];
     
     return newObject;
 }
