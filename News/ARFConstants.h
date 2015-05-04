@@ -34,7 +34,7 @@ static NSString* const kScoreEntityScore = @"score";
 static NSString* const kScoreEntityNew = @"newsEntity";
 
 
-
+static NSString* const kUserEntityName = @"User";
 
 
 #endif

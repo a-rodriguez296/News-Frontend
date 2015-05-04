@@ -11,6 +11,7 @@
 #import "ARFViewNewsViewController.h"
 #import "ARFDisplayNewViewController.h"
 #import "ARFNewsTableViewCell.h"
+#import "ARFUser.h"
 
 static NSString * const cellIdentifier = @"Cell";
 
@@ -150,10 +151,15 @@ static NSString * const cellIdentifier = @"Cell";
     PFUser *pUser =(PFUser *) [newsEntity user];
     [pUser fetchIfNeededInBackgroundWithBlock:^(PFObject *object, NSError *error){
 
+        ARFUser *user= (ARFUser *) object;
+        [cell.lblAuthor setText:[user username]];
+        
     }];
+
     NSNumber *average =(NSNumber *) [newsEntity average];
     [cell.lblScore setText:[average stringValue]];
-    [cell.imgNew setFile:[newsEntity photoThumbnail]];
+    PFFile *file = [newsEntity photoThumbnail];
+    [cell.imgNew setFile:file];
     
     return cell;
 }
