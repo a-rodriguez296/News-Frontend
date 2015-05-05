@@ -11,6 +11,7 @@
 #import "ARFNewsViewController.h"
 #import <FBSDKCoreKit/FBSDKCoreKit.h>
 #import <ParseFacebookUtilsV4/PFFacebookUtils.h>
+#import "GAI.h"
 
 //Borrar
 #import "ARFNewsEntity.h"
@@ -33,7 +34,10 @@
     [Parse setApplicationId:@"LkcDLQrgBOx3WrlsQdF7CbWoRxRheZNFhYEUDNbt" clientKey:@"vb1cj7WchFanF4RJnyjab78TbEFrkJoH8Cj3CxVT"];
     [PFFacebookUtils initializeFacebookWithApplicationLaunchOptions:launchOptions];
 
-    
+    //Configuración Google Analytics
+    [GAI sharedInstance].trackUncaughtExceptions = YES;
+    [GAI sharedInstance].dispatchInterval = 20;
+    [[GAI sharedInstance] trackerWithTrackingId:@"UA-62622368-1"];
     
     if (![PFUser currentUser]) {
         PFLogInViewController *logInController = [[PFLogInViewController alloc] init];

@@ -32,7 +32,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-    [self setScreenName:@"Display new"];
+
     [self.txtTitle setUserInteractionEnabled:NO];
     [self.txtNewsText setUserInteractionEnabled:NO];
 
@@ -41,7 +41,7 @@
 
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
-    
+    [self setScreenName:@"Display new"];
     
     UIBarButtonItem *btnAddScore = [[UIBarButtonItem alloc] initWithTitle:@"Add Score" style:UIBarButtonItemStylePlain target:self action:@selector(addScore:)];
     self.navigationItem.rightBarButtonItem = btnAddScore;

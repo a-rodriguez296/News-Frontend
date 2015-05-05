@@ -23,15 +23,16 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    [self setTitle:@"Create a New"];
-    [self setScreenName:@"Create a new screen"];
+
+
     
     [[CLLocationManager sharedLocationManager] startUpdatingLocationWithDelegate:self];
 }
 
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
-    
+    [self setTitle:@"Create a New"];
+    [self setScreenName:@"Create a new screen"];
     self.btnAddNews = [[UIBarButtonItem alloc] initWithTitle:@"Add New" style:UIBarButtonItemStylePlain target:self action:@selector(addNewsObject:)];
     [self.btnAddNews setEnabled:NO];
     [self.navigationItem setRightBarButtonItem:self.btnAddNews];
