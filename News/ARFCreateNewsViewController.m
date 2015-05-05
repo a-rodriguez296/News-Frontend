@@ -73,6 +73,9 @@
     [newsEntity saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error){
         [me startLoadingAnimationWithFlag:NO];
         if (succeeded) {
+            if ([self.delegate respondsToSelector:@selector(didCreateNewsEntity)]) {
+                [self.delegate didCreateNewsEntity];
+            }
             [self.navigationController popViewControllerAnimated:YES];
         }
     }];

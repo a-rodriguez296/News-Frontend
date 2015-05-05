@@ -18,7 +18,10 @@
 
 static NSString * const cellIdentifier = @"Cell";
 
-@interface ARFNewsViewController : PFQueryTableViewController <PFLogInViewControllerDelegate,HeaderSegmentDelegate>
+@interface ARFNewsViewController : PFQueryTableViewController <PFLogInViewControllerDelegate,HeaderSegmentDelegate,CreateNewsViewControllerDelegate>
+
+//Views
+@property(nonatomic, strong)ARFNewsHeader *tableHeader;
 
 @property(nonatomic, assign) kFeedType feedType;
 
@@ -41,7 +44,7 @@ static NSString * const cellIdentifier = @"Cell";
         self.paginationEnabled = YES;
         
         // The number of objects to show per page
-        self.objectsPerPage = 25;
+        self.objectsPerPage = 10;
     }
     return self;
 }
@@ -54,7 +57,7 @@ static NSString * const cellIdentifier = @"Cell";
     [self.tableView registerNib:[UINib nibWithNibName:NSStringFromClass([ARFNewsTableViewCell class]) bundle:nil] forCellReuseIdentifier:cellIdentifier];;
     
     //Botones Navigation bar
-    UIBarButtonItem *logoutButton = [[UIBarButtonItem alloc] initWithTitle:@"logout" style:UIBarButtonItemStylePlain target:self action:@selector(logout:)];
+    UIBarButtonItem *logoutButton = [[UIBarButtonItem alloc] initWithTitle:@"Logout" style:UIBarButtonItemStylePlain target:self action:@selector(logout:)];
     self.navigationItem.leftBarButtonItem = logoutButton;
     
     
@@ -62,14 +65,12 @@ static NSString * const cellIdentifier = @"Cell";
     self.navigationItem.rightBarButtonItem = addNewsButton;
     
     //Header de la tabla
-    ARFNewsHeader *header = [[[NSBundle mainBundle] loadNibNamed:@"ARFNewsHeader" owner:nil options:nil] lastObject];
-    [header setDelegate:self];
-    [self.tableView setTableHeaderView:header];
+    self.tableHeader = [[[NSBundle mainBundle] loadNibNamed:@"ARFNewsHeader" owner:nil options:nil] lastObject];
+    [self.tableHeader setDelegate:self];
+    [self.tableView setTableHeaderView:self.tableHeader];
     
     //Inicialización del feedType. Este atributo se usa en QueryForTable
     self.feedType = kGlobalFeed;
-
-    
 }
 
 -(void)viewWillAppear:(BOOL)animated{
@@ -84,19 +85,6 @@ static NSString * const cellIdentifier = @"Cell";
 
 
 #pragma mark - PFQueryTableViewController
-
-- (void)objectsWillLoad {
-    [super objectsWillLoad];
-    
-    // This method is called before a PFQuery is fired to get more objects
-}
-
-- (void)objectsDidLoad:(NSError *)error {
-    [super objectsDidLoad:error];
-    
-    // This method is called every time objects are loaded from Parse via the PFQuery
-}
-
 
 // Override to customize what kind of query to perform on the class. The default is to query for
 // all objects ordered by createdAt descending.
@@ -165,8 +153,7 @@ static NSString * const cellIdentifier = @"Cell";
     return 72.0;
 }
 
-/*
- //////Celda Loading more cells !!!!!!!!!!!!!!!!!!!!
+
  - (UITableViewCell *)tableView:(UITableView *)tableView cellForNextPageAtIndexPath:(NSIndexPath *)indexPath {
  static NSString *CellIdentifier = @"NextPage";
  
@@ -181,16 +168,18 @@ static NSString * const cellIdentifier = @"Cell";
  
  return cell;
  }
- */
+ 
 
 #pragma mark - UITableViewDelegate
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [super tableView:tableView didSelectRowAtIndexPath:indexPath];
     
-    ARFNewsEntity * newEntity =(ARFNewsEntity *) [self objectAtIndexPath:indexPath];
-    ARFDisplayNewViewController *displayNewVC = [[ARFDisplayNewViewController alloc] initWithNibName:NSStringFromClass([ARFBaseNewsEntityViewController class]) bundle:nil newsEntity:newEntity];
-    [self.navigationController pushViewController:displayNewVC animated:YES];
+    if (!([indexPath row] > (self.objects.count -1))) {
+        ARFNewsEntity * newEntity =(ARFNewsEntity *) [self objectAtIndexPath:indexPath];
+        ARFDisplayNewViewController *displayNewVC = [[ARFDisplayNewViewController alloc] initWithNibName:NSStringFromClass([ARFBaseNewsEntityViewController class]) bundle:nil newsEntity:newEntity];
+        [self.navigationController pushViewController:displayNewVC animated:YES];
+    }
 }
 
 #pragma mark HeaderSegmentDelegate
@@ -218,16 +207,38 @@ static NSString * const cellIdentifier = @"Cell";
     [self loadObjects];
 }
 
+#pragma mark CreateNewsViewControllerDelegate
+-(void) didCreateNewsEntity{
+    [self.tableHeader setSegmentSelectedIndex:2];
+}
 
 #pragma mark IBActions
 -(void) addNews:(id) sender{
     
-    ARFBaseNewsEntityViewController *createNewsVC = [[ARFCreateNewsViewController alloc] initWithNibName:NSStringFromClass([ARFBaseNewsEntityViewController class]) bundle:nil];
+    ARFCreateNewsViewController *createNewsVC = [[ARFCreateNewsViewController alloc] initWithNibName:NSStringFromClass([ARFBaseNewsEntityViewController class]) bundle:nil];
+    [createNewsVC setDelegate:self];
     [self.navigationController pushViewController:createNewsVC animated:YES];
 }
 
 -(void) logout:(id) sender{
     [PFUser logOut];
+    PFLogInViewController *logInController = [[PFLogInViewController alloc] init];
+    logInController.delegate = self;
+    [logInController setFields:PFLogInFieldsFacebook];
+    [logInController setFacebookPermissions:@[@"public_profile",@"email",@"user_friends"]];
+    [self presentViewController:logInController animated:YES completion:nil];
 }
+
+
+#pragma mark PFLogInViewControllerDelegate
+- (void)logInViewController:(PFLogInViewController *)controller
+               didLogInUser:(PFUser *)user {
+    
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+- (void)logInViewControllerDidCancelLogIn:(PFLogInViewController *)logInController {}
+
+-(void)logInViewController:(PFLogInViewController * __nonnull)logInController didFailToLogInWithError:(nullable NSError *)error{}
 
 @end

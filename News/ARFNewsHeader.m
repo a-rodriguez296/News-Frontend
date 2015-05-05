@@ -8,23 +8,37 @@
 
 #import "ARFNewsHeader.h"
 
+@interface ARFNewsHeader ()
+@property (weak, nonatomic) IBOutlet UISegmentedControl *segmentedControl;
+
+@end
+
+
 @implementation ARFNewsHeader
 
+-(void)awakeFromNib{
+    [self.segmentedControl addObserver:self forKeyPath:@"selectedSegmentIndex" options:NSKeyValueObservingOptionNew context:nil];
 
-- (IBAction)onTouchSegment:(id)sender {
-    
-    UISegmentedControl *control = (UISegmentedControl *) sender;
-    if (self.delegate) {
-        [self.delegate didPressSegmentWithIndex:control.selectedSegmentIndex];
+
+}
+
+-(void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context{
+    if ([keyPath isEqualToString:@"selectedSegmentIndex"]) {
+        
+        UISegmentedControl *control = (UISegmentedControl *) object;
+        if (self.delegate) {
+            [self.delegate didPressSegmentWithIndex:control.selectedSegmentIndex];
+        }
     }
 }
 
-/*
-// Only override drawRect: if you perform custom drawing.
-// An empty implementation adversely affects performance during animation.
-- (void)drawRect:(CGRect)rect {
-    // Drawing code
+-(void) setSegmentSelectedIndex:(NSUInteger) index{
+    
+    [self.segmentedControl setSelectedSegmentIndex:index];
 }
-*/
+
+-(void)dealloc{
+    [self removeObserver:self forKeyPath:@"selectedSegment"];
+}
 
 @end

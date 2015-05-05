@@ -20,4 +20,7 @@
 @property(nonatomic, weak) id<HeaderSegmentDelegate> delegate;
 
 
+-(void) setSegmentSelectedIndex:(NSUInteger) index;
+
+
 @end

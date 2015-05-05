@@ -9,6 +9,18 @@
 #import "ARFBaseNewsEntityViewController.h"
 @import CoreLocation;
 
+
+@protocol CreateNewsViewControllerDelegate <NSObject>
+
+@optional
+-(void) didCreateNewsEntity;
+
+@end
+
+
 @interface ARFCreateNewsViewController : ARFBaseNewsEntityViewController <UINavigationControllerDelegate,UIImagePickerControllerDelegate,CLLocationManagerDelegate>
+
+
+@property(nonatomic, weak) id<CreateNewsViewControllerDelegate> delegate;
 
 @end

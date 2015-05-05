@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7531" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7531" systemVersion="14E7f" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7520"/>
     </dependencies>
@@ -17,9 +17,6 @@
                         <segment title="Published news"/>
                         <segment title="Unpublished news"/>
                     </segments>
-                    <connections>
-                        <action selector="onTouchSegment:" destination="fAV-rh-eu7" eventType="valueChanged" id="frA-1e-9Kl"/>
-                    </connections>
                 </segmentedControl>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -28,6 +25,9 @@
                 <constraint firstAttribute="centerX" secondItem="0IN-tN-quD" secondAttribute="centerX" id="hnX-UZ-FLj"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="segmentedControl" destination="0IN-tN-quD" id="9bQ-NY-kaO"/>
+            </connections>
             <point key="canvasLocation" x="710" y="212.5"/>
         </view>
     </objects>
