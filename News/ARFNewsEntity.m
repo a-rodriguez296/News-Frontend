@@ -41,14 +41,14 @@
     [newObject setObject:text forKey:kNewsEntityText];
     
     //Creación imagen
-//    PFFile *imgFile = [PFFile fileWithData:UIImageJPEGRepresentation(image, 1.0)];
-//    [newObject setObject:imgFile forKey:kNewsEntityPhoto];
-//    
-//    //Autor
-//    [newObject setObject:[PFUser currentUser] forKey:kNewsEntityUser];
-//    
-//    PFGeoPoint * geoPoint = [PFGeoPoint geoPointWithLocation:location];
-//    [newObject setObject:geoPoint forKey:kNewsEntityGeopoint];
+    PFFile *imgFile = [PFFile fileWithData:UIImageJPEGRepresentation(image, 1.0)];
+    [newObject setObject:imgFile forKey:kNewsEntityPhoto];
+    
+    //Autor
+    [newObject setObject:[PFUser currentUser] forKey:kNewsEntityUser];
+    
+    PFGeoPoint * geoPoint = [PFGeoPoint geoPointWithLocation:location];
+    [newObject setObject:geoPoint forKey:kNewsEntityGeopoint];
     
     return newObject;
 }

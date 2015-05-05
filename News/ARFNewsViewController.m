@@ -143,8 +143,8 @@ static NSString * const cellIdentifier = @"Cell";
     [cell.lblAuthor setText:[newsEntity author]];
     NSNumber *average =(NSNumber *) [newsEntity average];
     [cell.lblScore setText:[average stringValue]];
-    PFFile *file = [newsEntity photoThumbnail];
-    [cell.imgNew setFile:file];
+    [cell.imgNew setFile:[newsEntity photoThumbnail]];
+    [cell.imgNew loadInBackground];
     
     return cell;
 }
