@@ -12,6 +12,7 @@
 #import <FBSDKCoreKit/FBSDKCoreKit.h>
 #import <ParseFacebookUtilsV4/PFFacebookUtils.h>
 #import "GAI.h"
+#import "GAITracker.h"
 
 //Borrar
 #import "ARFNewsEntity.h"

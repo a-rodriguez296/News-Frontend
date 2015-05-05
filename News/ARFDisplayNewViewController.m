@@ -11,6 +11,8 @@
 #import "ARFConstants.h"
 #import "ARFScore.h"
 #import "PFObject+Utils.h"
+#import "GAI.h"
+#import "GAIDictionaryBuilder.h"
 
 @interface ARFDisplayNewViewController ()
 
@@ -60,6 +62,10 @@
     //Creación del action
     _ME_WEAK
     UIAlertAction * sendScore = [UIAlertAction actionWithTitle:@"Send Score" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
+        
+        id<GAITracker> tracker = [[GAI sharedInstance] defaultTracker];
+        [tracker send:[[GAIDictionaryBuilder createEventWithCategory:@"Create" action:@"Add score" label:@"" value:nil] build]];
+        
         UITextField *txtScore = alertController.textFields[0];
         double dScore = [txtScore.text doubleValue];
         ARFScore *score =[ARFScore createScoreWithScore:dScore withNew:me.newsEntity];

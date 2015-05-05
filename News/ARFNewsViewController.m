@@ -13,6 +13,8 @@
 #import "ARFNewsTableViewCell.h"
 #import "ARFUser.h"
 #import "ARFNewsHeader.h"
+#import "GAI.h"
+#import "GAIDictionaryBuilder.h"
 
 static NSString * const cellIdentifier = @"Cell";
 
@@ -178,14 +180,21 @@ static NSString * const cellIdentifier = @"Cell";
 
 #pragma mark HeaderSegmentDelegate
 -(void) didPressSegmentWithIndex:(NSUInteger) index{
+    
+    id<GAITracker> tracker = [[GAI sharedInstance] defaultTracker];
+    [tracker send:[[GAIDictionaryBuilder createEventWithCategory:@"Select" action:@"Global Feed" label:@"" value:nil] build]];
+    
     if (index == kGlobalFeed) {
         //Feed entero
+        [tracker send:[[GAIDictionaryBuilder createEventWithCategory:@"Select" action:@"Global Feed" label:@"" value:nil] build]];
     }
     else if (index == kMyPublishedNewsFeed){
         //Mis noticias publicadas
+        [tracker send:[[GAIDictionaryBuilder createEventWithCategory:@"Select" action:@"My published news Feed" label:@"" value:nil] build]];
     }
     else{
         //Mis noticias no publicadas
+        [tracker send:[[GAIDictionaryBuilder createEventWithCategory:@"Select" action:@"My unpublished news Feed" label:@"" value:nil] build]];
     }
 }
 

@@ -11,6 +11,8 @@
 #import "UIImage+Resize.h"
 #import "ARFNewsEntity.h"
 #import "CLLocationManager+Manager.h"
+#import "GAI.h"
+#import "GAIDictionaryBuilder.h"
 
 @interface ARFCreateNewsViewController ()
 
@@ -22,9 +24,6 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
-
-
     
     [[CLLocationManager sharedLocationManager] startUpdatingLocationWithDelegate:self];
 }
@@ -62,6 +61,10 @@
 }
 
 -(void) addNewsObject:(id) sender{
+    
+    //Analytics
+    id<GAITracker> tracker = [[GAI sharedInstance] defaultTracker];
+    [tracker send:[[GAIDictionaryBuilder createEventWithCategory:@"Create" action:@"Create New" label:@"" value:nil] build]];
     
     ARFNewsEntity *newsEntity = [ARFNewsEntity createNewWithTitle:self.txtTitle.text text:self.txtNewsText.text photo:self.imgNews.image location:self.location];
     _ME_WEAK
