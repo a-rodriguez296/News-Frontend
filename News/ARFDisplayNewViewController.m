@@ -111,10 +111,8 @@
     [self.toolBar setHidden:YES];
     [self.txtTitle setText:self.newsEntity.title];
     [self.txtNewsText setText:self.newsEntity.text];
-    _ME_WEAK
-    [[self.newsEntity objectForKey:kNewsEntityPhoto] getDataInBackgroundWithBlock:^(NSData *data, NSError *error){
-        [me.imgNews setImage:[UIImage imageWithData:data]];
-    }];
+    [self.imgNews setFile:[self.newsEntity photo]];
+    [self.imgNews loadInBackground];
     
     //Usuario actual fue el que publicó la noticia
     if ([PFObject compareWithLocalUserWithUser:self.newsEntity.user]) {

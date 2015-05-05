@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "ARFBaseViewController.h"
-
+#import <ParseUI/ParseUI.h>
 @interface ARFBaseNewsEntityViewController : ARFBaseViewController
 
 
@@ -16,7 +16,7 @@
 @property (weak, nonatomic) IBOutlet UITextField *txtTitle;
 @property (weak, nonatomic) IBOutlet UITextView *txtNewsText;
 @property (nonatomic, strong) UIBarButtonItem * btnAddNews;
-@property (weak, nonatomic) IBOutlet UIImageView *imgNews;
+@property (weak, nonatomic) IBOutlet PFImageView *imgNews;
 @property (weak, nonatomic) IBOutlet UIActivityIndicatorView *activityIndicator;
 @property (weak, nonatomic) IBOutlet UIToolbar *toolBar;
 @property (weak, nonatomic) IBOutlet UIButton *btnAddImage;

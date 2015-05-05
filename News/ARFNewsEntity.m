@@ -16,9 +16,10 @@
 
 @dynamic title;
 @dynamic text;
-@dynamic  user;
+@dynamic user;
 @dynamic average;
 @dynamic photoThumbnail;
+@dynamic photo;
 @dynamic state;
 @dynamic author;
 
