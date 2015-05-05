@@ -10,6 +10,7 @@
 
 @protocol HeaderSegmentDelegate <NSObject>
 
+@required
 -(void) didPressSegmentWithIndex:(NSUInteger) index;
 
 @end

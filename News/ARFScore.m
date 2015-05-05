@@ -19,7 +19,7 @@
     PFObject *scoreEntity = [PFObject objectWithClassName:kScoreEntityName];
     [scoreEntity setObject:[NSNumber numberWithDouble:score] forKey:kScoreEntityScore];
     [scoreEntity setObject:newsEntity forKey:kScoreEntityNew];
-    [scoreEntity setObject:[PFUser currentUser] forKey:kNewsEntityAuthor];
+    [scoreEntity setObject:[PFUser currentUser] forKey:kNewsEntityUser];
     return scoreEntity;
 }
 

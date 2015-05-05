@@ -45,7 +45,7 @@
     [newObject setObject:imgFile forKey:kNewsEntityPhoto];
     
     //Autor
-    [newObject setObject:[PFUser currentUser] forKey:kNewsEntityAuthor];
+    [newObject setObject:[PFUser currentUser] forKey:kNewsEntityUser];
     
     PFGeoPoint * geoPoint = [PFGeoPoint geoPointWithLocation:location];
     [newObject setObject:geoPoint forKey:kNewsEntityGeopoint];

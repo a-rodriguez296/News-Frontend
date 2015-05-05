@@ -25,9 +25,10 @@ static const NSUInteger kAutoSave = 5;
 static NSString* const kNewsEntityName = @"NewsEntity";
 static NSString* const kNewsEntityTitle = @"title";
 static NSString* const kNewsEntityText = @"text";
-static NSString* const kNewsEntityAuthor = @"user";
+static NSString* const kNewsEntityUser = @"user";
 static NSString* const kNewsEntityPhoto = @"photo";
 static NSString * const kNewsEntityGeopoint = @"geopoint";
+static NSString * const kNewsEntityState = @"state";
 
 //Constantes ARFScore
 static NSString* const kScoreEntityName = @"Score";
@@ -42,8 +43,9 @@ static NSString* const kUserEntityName = @"User";
 typedef enum {
     kNewsEntityUnpublished,
     kNewsEntityPublished,
+    knewsEntityAuthorized,
     
-} kNewsEntityState;
+} kNewsState;
 
 
 //Enum para saber que tipo de feed quiere el usuario

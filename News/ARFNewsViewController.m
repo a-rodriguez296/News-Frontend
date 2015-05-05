@@ -18,9 +18,9 @@
 
 static NSString * const cellIdentifier = @"Cell";
 
-@interface ARFNewsViewController : PFQueryTableViewController <PFLogInViewControllerDelegate>
+@interface ARFNewsViewController : PFQueryTableViewController <PFLogInViewControllerDelegate,HeaderSegmentDelegate>
 
-@property (nonatomic, strong) PFUser *user;
+@property(nonatomic, assign) kFeedType feedType;
 
 @end
 
@@ -33,12 +33,6 @@ static NSString * const cellIdentifier = @"Cell";
         
         // The className to query on
         self.parseClassName = kNewsEntityName;
-        
-        // The key of the PFObject to display in the label of the default cell style
-        self.textKey = kNewsEntityTitle;
-        
-        // Uncomment the following line to specify the key of a PFFile on the PFObject to display in the imageView of the default cell style
-        // self.imageKey = @"image";
         
         // Whether the built-in pull-to-refresh is enabled
         self.pullToRefreshEnabled = YES;
@@ -59,8 +53,7 @@ static NSString * const cellIdentifier = @"Cell";
     
     [self.tableView registerNib:[UINib nibWithNibName:NSStringFromClass([ARFNewsTableViewCell class]) bundle:nil] forCellReuseIdentifier:cellIdentifier];;
     
-    self.user = [PFUser currentUser];
-    
+    //Botones Navigation bar
     UIBarButtonItem *logoutButton = [[UIBarButtonItem alloc] initWithTitle:@"logout" style:UIBarButtonItemStylePlain target:self action:@selector(logout:)];
     self.navigationItem.leftBarButtonItem = logoutButton;
     
@@ -68,11 +61,20 @@ static NSString * const cellIdentifier = @"Cell";
     UIBarButtonItem *addNewsButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(addNews:)];
     self.navigationItem.rightBarButtonItem = addNewsButton;
     
+    //Header de la tabla
     ARFNewsHeader *header = [[[NSBundle mainBundle] loadNibNamed:@"ARFNewsHeader" owner:nil options:nil] lastObject];
     [header setDelegate:self];
     [self.tableView setTableHeaderView:header];
+    
+    //Inicialización del feedType. Este atributo se usa en QueryForTable
+    self.feedType = kGlobalFeed;
 
     
+}
+
+-(void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+    [self loadObjects];
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
@@ -103,6 +105,26 @@ static NSString * const cellIdentifier = @"Cell";
     
     
     PFQuery *query = [PFQuery queryWithClassName:self.parseClassName];
+    if (self.feedType == kGlobalFeed) {
+     
+        //Predicate para sólo buscar las noticias que están publicadas
+        [query whereKey:kNewsEntityState equalTo:[NSNumber numberWithInteger:knewsEntityAuthorized]];
+    }
+    else{
+        
+        //Predicate para que las noticias sean del Current User. Este predicate es común en todos los casos
+        [query whereKey:kNewsEntityUser equalTo:[PFUser currentUser]];
+        if (self.feedType == kMyPublishedNewsFeed) {
+            
+            //Predicate para buscar sólo las noticias que están publicadas
+            [query whereKey:kNewsEntityState equalTo:[NSNumber numberWithInteger:kNewsEntityPublished]];
+        }
+        else{
+            
+            //Predicate para buscar sólo las noticias que no estan publicadas
+            [query whereKey:kNewsEntityState equalTo:[NSNumber numberWithInteger:kNewsEntityUnpublished]];
+        }
+    }
     
     // If Pull To Refresh is enabled, query against the network by default.
     if (self.pullToRefreshEnabled) {
@@ -180,15 +202,20 @@ static NSString * const cellIdentifier = @"Cell";
     if (index == kGlobalFeed) {
         //Feed entero
         [tracker send:[[GAIDictionaryBuilder createEventWithCategory:@"Select" action:@"Global Feed" label:@"" value:nil] build]];
+        self.feedType = kGlobalFeed;
     }
     else if (index == kMyPublishedNewsFeed){
         //Mis noticias publicadas
         [tracker send:[[GAIDictionaryBuilder createEventWithCategory:@"Select" action:@"My published news Feed" label:@"" value:nil] build]];
+        self.feedType = kMyPublishedNewsFeed;
     }
     else{
         //Mis noticias no publicadas
         [tracker send:[[GAIDictionaryBuilder createEventWithCategory:@"Select" action:@"My unpublished news Feed" label:@"" value:nil] build]];
+        self.feedType = kMyUnpublishedNewsFeed;
     }
+    
+    [self loadObjects];
 }
 
 
