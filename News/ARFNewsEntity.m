@@ -20,6 +20,7 @@
 @dynamic average;
 @dynamic photoThumbnail;
 @dynamic state;
+@dynamic author;
 
 + (NSString *)parseClassName {
     return kNewsEntityName;

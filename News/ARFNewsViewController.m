@@ -130,14 +130,7 @@ static NSString * const cellIdentifier = @"Cell";
     
     ARFNewsTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
     [cell.lblTitle setText:[newsEntity title]];
-    PFUser *pUser =(PFUser *) [newsEntity user];
-    [pUser fetchIfNeededInBackgroundWithBlock:^(PFObject *object, NSError *error){
-
-        ARFUser *user= (ARFUser *) object;
-        [cell.lblAuthor setText:[user username]];
-        
-    }];
-
+    [cell.lblAuthor setText:[newsEntity author]];
     NSNumber *average =(NSNumber *) [newsEntity average];
     [cell.lblScore setText:[average stringValue]];
     PFFile *file = [newsEntity photoThumbnail];

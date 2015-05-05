@@ -19,6 +19,7 @@
 @property(nonatomic, strong) NSString *average;
 @property(nonatomic, strong) PFFile * photoThumbnail;
 @property(nonatomic, assign) NSUInteger  state;
+@property(nonatomic, strong) NSString * author;
 
 
 + (NSString *)parseClassName;
