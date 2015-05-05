@@ -197,6 +197,15 @@
 			name = Cell;
 			sourceTree = "<group>";
 		};
+		9CBED1CF1AF85BB3003A018C /* PFObject */ = {
+			isa = PBXGroup;
+			children = (
+				9CBED1CC1AF82B9A003A018C /* PFObject+Utils.h */,
+				9CBED1CD1AF82B9A003A018C /* PFObject+Utils.m */,
+			);
+			name = PFObject;
+			sourceTree = "<group>";
+		};
 		9CEB2D251AEE928600F74364 = {
 			isa = PBXGroup;
 			children = (
@@ -312,8 +321,7 @@
 				9CF7B0291AF18A81001D5021 /* UIImage */,
 				9CF7B01F1AF183E0001D5021 /* Base VC */,
 				9CBED1CA1AF825AF003A018C /* Location Manager */,
-				9CBED1CC1AF82B9A003A018C /* PFObject+Utils.h */,
-				9CBED1CD1AF82B9A003A018C /* PFObject+Utils.m */,
+				9CBED1CF1AF85BB3003A018C /* PFObject */,
 			);
 			name = Utils;
 			sourceTree = "<group>";

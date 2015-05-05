@@ -35,7 +35,15 @@ static NSString* const kScoreEntityScore = @"score";
 static NSString* const kScoreEntityNew = @"newsEntity";
 
 
+//Constantes ARFUser
 static NSString* const kUserEntityName = @"User";
+
+
+typedef enum {
+    kNewsEntityUnpublished,
+    kNewsEntityPublished,
+    
+} kNewsEntityState;
 
 
 #endif

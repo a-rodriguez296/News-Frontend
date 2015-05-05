@@ -46,7 +46,7 @@
     UIBarButtonItem *btnAddScore = [[UIBarButtonItem alloc] initWithTitle:@"Add Score" style:UIBarButtonItemStylePlain target:self action:@selector(addScore:)];
     self.navigationItem.rightBarButtonItem = btnAddScore;
     [self.btnPublish setHidden:NO];
-    
+    [self.btnPublish addTarget:self action:@selector(publish:) forControlEvents:UIControlEventTouchUpInside];
     [self syncWithModel];
 }
 
@@ -77,18 +77,27 @@
         [textField setPlaceholder:@"Score 0.0 - 5.0."];
         [textField setKeyboardType:UIKeyboardTypeDecimalPad];
     }];
-  
-    
-    
 
     [sendScore setEnabled:NO];
-    
-
 
     [alertController addAction:sendScore];
     [self presentViewController:alertController animated:YES completion:nil];
+}
+
+
+-(void) publish:(id) sender{
     
+    //Desactivar el botón
+    [sender setUserInteractionEnabled:NO];
     
+    //Cambiar el estado de la entidad news entity
+    [self.newsEntity setState:kNewsEntityPublished];
+    [self.newsEntity saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error){
+        if (succeeded) {
+            [sender setEnabled:NO];
+        }
+
+    }];
 }
 
 #pragma mark Utils
@@ -100,7 +109,20 @@
     [[self.newsEntity objectForKey:kNewsEntityPhoto] getDataInBackgroundWithBlock:^(NSData *data, NSError *error){
         [me.imgNews setImage:[UIImage imageWithData:data]];
     }];
-    [self.btnPublish setEnabled:[PFObject compareWithLocalUserWithUser:self.newsEntity.user]];
+    
+    //Usuario actual fue el que publicó la noticia
+    if ([PFObject compareWithLocalUserWithUser:self.newsEntity.user]) {
+        if (self.newsEntity.state == kNewsEntityUnpublished) {
+            [self.btnPublish setEnabled:YES];
+        }
+        else{
+            [self.btnPublish setEnabled:NO];
+            [self.btnPublish setTitle:@"In Review" forState:UIControlStateDisabled];
+        }
+    }
+    else{
+        [self.btnPublish setHidden:YES];
+    }
 }
 
 @end
