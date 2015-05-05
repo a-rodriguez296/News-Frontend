@@ -38,12 +38,20 @@ static NSString* const kScoreEntityNew = @"newsEntity";
 //Constantes ARFUser
 static NSString* const kUserEntityName = @"User";
 
-
+//Enum para el estado de una noticia
 typedef enum {
     kNewsEntityUnpublished,
     kNewsEntityPublished,
     
 } kNewsEntityState;
+
+
+//Enum para saber que tipo de feed quiere el usuario
+typedef enum{
+    kGlobalFeed,
+    kMyPublishedNewsFeed,
+    kMyUnpublishedNewsFeed,
+}kFeedType;
 
 
 #endif

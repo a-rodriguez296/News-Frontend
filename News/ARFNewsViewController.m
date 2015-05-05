@@ -12,6 +12,7 @@
 #import "ARFDisplayNewViewController.h"
 #import "ARFNewsTableViewCell.h"
 #import "ARFUser.h"
+#import "ARFNewsHeader.h"
 
 static NSString * const cellIdentifier = @"Cell";
 
@@ -65,32 +66,11 @@ static NSString * const cellIdentifier = @"Cell";
     UIBarButtonItem *addNewsButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(addNews:)];
     self.navigationItem.rightBarButtonItem = addNewsButton;
     
-}
+    ARFNewsHeader *header = [[[NSBundle mainBundle] loadNibNamed:@"ARFNewsHeader" owner:nil options:nil] lastObject];
+    [header setDelegate:self];
+    [self.tableView setTableHeaderView:header];
 
-
-- (void)viewDidAppear:(BOOL)animated {
-    [super viewDidAppear:animated];
     
-    //    PFUser *user = [PFUser currentUser];
-    
-    
-    //    [PFCloud callFunctionInBackground:@"hello" withParameters:nil block:^(id result, NSError *error){
-    //
-    //        NSDictionary * dict = result;
-    //        NSLog(@"%@",dict);
-    //
-    //    }];
-    
-    
-    //    [PFFacebookUtils logInInBackgroundWithReadPermissions:@[@"public_profile",@"email",@"user_friends"] block:^(PFUser *user, NSError *error) {
-    //        if (!user) {
-    //            NSLog(@"Uh oh. The user cancelled the Facebook login.");
-    //        } else if (user.isNew) {
-    //            NSLog(@"User signed up and logged in through Facebook!");
-    //        } else {
-    //            NSLog(@"User logged in through Facebook!");
-    //        }
-    //    }];
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
@@ -195,6 +175,20 @@ static NSString * const cellIdentifier = @"Cell";
     ARFDisplayNewViewController *displayNewVC = [[ARFDisplayNewViewController alloc] initWithNibName:NSStringFromClass([ARFBaseNewsEntityViewController class]) bundle:nil newsEntity:newEntity];
     [self.navigationController pushViewController:displayNewVC animated:YES];
 }
+
+#pragma mark HeaderSegmentDelegate
+-(void) didPressSegmentWithIndex:(NSUInteger) index{
+    if (index == kGlobalFeed) {
+        //Feed entero
+    }
+    else if (index == kMyPublishedNewsFeed){
+        //Mis noticias publicadas
+    }
+    else{
+        //Mis noticias no publicadas
+    }
+}
+
 
 #pragma mark IBActions
 -(void) addNews:(id) sender{

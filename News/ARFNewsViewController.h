@@ -8,8 +8,10 @@
 
 #import <UIKit/UIKit.h>
 #import <ParseUI/ParseUI.h>
+#import "ARFNewsHeader.h"
+
+@interface ARFNewsViewController : PFQueryTableViewController <HeaderSegmentDelegate>
 
 
-@interface ARFNewsViewController : PFQueryTableViewController
 
 @end
