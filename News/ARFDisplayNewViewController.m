@@ -123,7 +123,12 @@
         }
         else{
             [self.btnPublish setEnabled:NO];
-            [self.btnPublish setTitle:@"In Review" forState:UIControlStateDisabled];
+            if(self.newsEntity.state == kNewsEntityPublished){
+                [self.btnPublish setTitle:@"In Review" forState:UIControlStateDisabled];
+            }
+            else{
+                [self.btnPublish setTitle:@"Published" forState:UIControlStateDisabled];
+            }
         }
     }
     else{
